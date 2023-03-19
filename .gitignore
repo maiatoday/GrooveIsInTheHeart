@@ -1,0 +1,25 @@
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### IntelliJ IDEA ###
+.idea
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Generated files
+bin/
+gen/
+out/
+
+# Built application files
+*.apk
+*.aar
+*.ap_
+*.aab
+
+### Mac OS ###
+.DS_Store
