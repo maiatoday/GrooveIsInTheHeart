@@ -11,9 +11,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import net.maiatoday.giith.blink.BlinkText
-import net.maiatoday.giith.blink.ThemedBlinkText
-import net.maiatoday.giith.components.*
 import net.maiatoday.giith.ui.*
 import net.maiatoday.giith.ui.components.BackButton
 
