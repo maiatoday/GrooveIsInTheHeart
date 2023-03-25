@@ -1,5 +1,6 @@
-package net.maiatoday.giith.navigation.roots
+package net.maiatoday.giith.glitter
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
@@ -9,6 +10,9 @@ import net.maiatoday.giith.ui.components.BackButton
 @Composable
 fun GlitterPointerScreen(onBack: () -> Unit = { }) {
     Surface(modifier = Modifier.fillMaxSize()) {
-        BackButton(onBack = onBack)
+        Column {
+            BackButton(onBack = onBack)
+            GlitterBox()
+        }
     }
 }

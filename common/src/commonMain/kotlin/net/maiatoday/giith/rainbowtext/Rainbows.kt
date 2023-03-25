@@ -7,7 +7,7 @@ val pastelRainbow = listOf(
     SherbetBomb,
     SummerSky,
     FishTank,
-    TasteyWheat,
+    DishwashingLiquid,
     Oros,
     MyPonyHair
 )
