@@ -1,4 +1,4 @@
-package com.myapplication
+package net.maiatoday.giith
 
 import App
 import android.os.Bundle
