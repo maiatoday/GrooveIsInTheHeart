@@ -11,6 +11,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import net.maiatoday.giith.components.BackButton
 import net.maiatoday.giith.components.Swatch
 import net.maiatoday.giith.ui.grooveColorNames
 
@@ -18,7 +19,7 @@ import net.maiatoday.giith.ui.grooveColorNames
 fun ColorSwatchesScreen(onBack: () -> Unit = { }) {
     Surface(modifier = Modifier.fillMaxSize()) {
         Row {
-            Button(onClick = onBack) { Text("Back") }
+            BackButton(onBack = onBack)
             LazyVerticalGrid(
                 columns = GridCells.Adaptive(minSize = 172.dp)
             ) {

@@ -11,10 +11,8 @@ import net.maiatoday.giith.components.Choices
 import net.maiatoday.giith.components.ChoicesPanel
 import net.maiatoday.giith.components.MAX_DOT_COUNT
 import net.maiatoday.giith.components.Page
-import net.maiatoday.giith.navigation.roots.ColorSwatchesScreen
-import net.maiatoday.giith.navigation.roots.HomeScreen
 import net.maiatoday.giith.navigation.Screen
-import net.maiatoday.giith.navigation.roots.DoodleSketchScreen
+import net.maiatoday.giith.navigation.roots.*
 import net.maiatoday.giith.sketch.AllTheDots
 import net.maiatoday.giith.sketch.AllTheLines
 import net.maiatoday.giith.tools.buildPoints
@@ -26,12 +24,18 @@ fun App() {
     GrooveTheme {
         when (screenState) {
             Screen.Home -> HomeScreen(
-                onColorSwatches = { screenState = Screen.ColorSwatches },
-                onDoodleSketch = { screenState = Screen.DoodleSketch }
+                switchChildScreen = { screen -> screenState = screen }
             )
             Screen.ColorSwatches -> ColorSwatchesScreen { screenState = Screen.Home }
             Screen.DoodleSketch -> DoodleSketchScreen { screenState = Screen.Home }
-            else -> DoodleSketchScreen { screenState = Screen.DoodleSketch }
+            Screen.RainbowText -> RainbowTextScreen { screenState = Screen.Home }
+            Screen.Blink -> BlinkScreen { screenState = Screen.Home }
+            Screen.VisitorCounter -> VisitorCounterScreen { screenState = Screen.Home }
+            Screen.GlitterPointer -> GlitterPointerScreen { screenState = Screen.Home }
+            Screen.UnderConstruction -> UnderConstructionScreen { screenState = Screen.Home }
+            Screen.HeartPath -> HeartPathScreen { screenState = Screen.Home }
+            Screen.GuestBook -> GuestBookScreen { screenState = Screen.Home }
+            Screen.Links -> LinksScreen { screenState = Screen.Home }
         }
     }
 }

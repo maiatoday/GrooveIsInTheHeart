@@ -100,9 +100,7 @@ fun ChoicesPanel(
         }
 
         item {
-            Button(modifier = padding, onClick = onBack) {
-                Text("Back")
-            }
+            BackButton(Modifier.padding(8.dp), onBack)
         }
     }
 }
