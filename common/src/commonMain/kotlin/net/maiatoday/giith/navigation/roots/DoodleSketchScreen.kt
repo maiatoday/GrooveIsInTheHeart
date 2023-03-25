@@ -10,10 +10,10 @@ import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.unit.dp
 import getPlatformName
-import net.maiatoday.giith.components.Choices
-import net.maiatoday.giith.components.ChoicesPanel
-import net.maiatoday.giith.components.MAX_DOT_COUNT
-import net.maiatoday.giith.components.Page
+import net.maiatoday.giith.ui.components.Choices
+import net.maiatoday.giith.ui.components.ChoicesPanel
+import net.maiatoday.giith.ui.components.MAX_DOT_COUNT
+import net.maiatoday.giith.ui.components.Page
 import net.maiatoday.giith.sketch.AllTheDots
 import net.maiatoday.giith.sketch.AllTheLines
 import net.maiatoday.giith.tools.buildPoints

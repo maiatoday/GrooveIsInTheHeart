@@ -12,7 +12,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.Fill
 import androidx.compose.ui.unit.dp
-import net.maiatoday.giith.components.drawModifier
+import net.maiatoday.giith.ui.components.drawModifier
 import net.maiatoday.giith.ui.TrollHair
 
 //region Gradient Brush

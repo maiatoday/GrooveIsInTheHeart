@@ -1,4 +1,4 @@
-package net.maiatoday.giith.components
+package net.maiatoday.giith.ui.components
 
 import androidx.compose.material.Button
 import androidx.compose.material.Text

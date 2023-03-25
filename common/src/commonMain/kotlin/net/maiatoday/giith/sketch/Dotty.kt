@@ -7,8 +7,8 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.Fill
 import androidx.compose.ui.graphics.drawscope.Stroke
-import net.maiatoday.giith.components.Choices
-import net.maiatoday.giith.components.drawModifier
+import net.maiatoday.giith.ui.components.Choices
+import net.maiatoday.giith.ui.components.drawModifier
 import net.maiatoday.giith.tools.*
 import kotlin.random.Random
 

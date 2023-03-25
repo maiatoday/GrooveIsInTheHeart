@@ -11,8 +11,8 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import net.maiatoday.giith.components.BackButton
-import net.maiatoday.giith.components.Swatch
+import net.maiatoday.giith.ui.components.BackButton
+import net.maiatoday.giith.ui.components.Swatch
 import net.maiatoday.giith.ui.grooveColorNames
 
 @Composable

@@ -10,7 +10,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.*
 import androidx.compose.ui.graphics.drawscope.*
-import net.maiatoday.giith.components.drawModifier
+import net.maiatoday.giith.ui.components.drawModifier
 import net.maiatoday.giith.tools.DOT_COUNT
 import net.maiatoday.giith.tools.randomColor
 import net.maiatoday.giith.tools.randomGrey

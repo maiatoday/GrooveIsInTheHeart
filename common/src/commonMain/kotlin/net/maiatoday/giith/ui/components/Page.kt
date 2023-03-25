@@ -1,4 +1,4 @@
-package net.maiatoday.giith.components
+package net.maiatoday.giith.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
