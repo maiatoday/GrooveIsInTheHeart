@@ -18,27 +18,8 @@ import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
-fun DrawScope.swatch(color: Color = Color.Blue, fill: Boolean = false, size: Float = 100f, offset: Offset) {
-    drawRect(
-        color = color,
-        style = if (fill) Fill else Stroke(width = 10f),
-        size = Size(size, size),
-        topLeft = offset
-    )
-}
-
-fun DrawScope.roundedSwatch(color: Color = Color.LightGray, fill: Boolean = true, size: Float = 100f, offset: Offset) {
-    drawRoundRect(
-        color = color,
-        style = if (fill) Fill else Stroke(width = 10f),
-        size = Size(size, size),
-        topLeft = offset,
-        cornerRadius = CornerRadius(10f, 10f)
-    )
-}
-
 @Composable
-fun Swatch(color: Color = Color.LightGray, size: Dp = 48.dp, name: String = "") {
+fun Swatch(color: Color = Color.LightGray, size: Dp = 48.dp, name: String = "LightGray") {
     Row(verticalAlignment = Alignment.CenterVertically) {
         Box(
             modifier = Modifier.padding(8.dp)

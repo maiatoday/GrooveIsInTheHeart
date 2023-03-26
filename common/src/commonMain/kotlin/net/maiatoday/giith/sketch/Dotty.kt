@@ -1,17 +1,19 @@
 package net.maiatoday.giith.sketch
 
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.geometry.Size
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.Fill
-import androidx.compose.ui.graphics.drawscope.Stroke
-import net.maiatoday.giith.ui.components.Choices
-import net.maiatoday.giith.ui.components.drawModifier
-import net.maiatoday.giith.tools.*
+import net.maiatoday.giith.tools.randomGrey
+import net.maiatoday.giith.tools.randomThemeColor
 import kotlin.random.Random
 
+private val drawModifier = Modifier
+    .fillMaxSize()
+    .clipToBounds()
 //region Dots with choices - for later don't look
 @Composable
 fun AllTheDots(choices: Choices = Choices(), points:List<Offset>) {

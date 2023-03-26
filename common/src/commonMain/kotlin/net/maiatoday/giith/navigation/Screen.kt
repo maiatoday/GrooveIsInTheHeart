@@ -1,17 +1,15 @@
 package net.maiatoday.giith.navigation
 
-sealed class Screen {
-    object Home : Screen()
-    object ColorSwatches : Screen()
-    object DoodleSketch : Screen()
-    object RainbowText : Screen()
-    object Blink : Screen()
-    object VisitorCounter : Screen()
-    object GlitterPointer : Screen()
-    object UnderConstruction : Screen()
-    object HeartPath : Screen()
-    object Links : Screen()
-    object GuestBook : Screen()
+enum class Screen {
+    Home,
+    ColorSwatches,
+    DoodleSketch,
+    RainbowText,
+    Blink,
+    VisitorCounter,
+    GlitterPointer,
+    UnderConstruction,
+    HeartPath,
+    Links,
+    GuestBook
 }
-
-data class ChildScreen(val name: String = "", val screen: Screen)

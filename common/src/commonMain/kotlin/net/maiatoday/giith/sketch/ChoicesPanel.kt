@@ -1,4 +1,4 @@
-package net.maiatoday.giith.ui.components
+package net.maiatoday.giith.sketch
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -13,6 +13,7 @@ import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import net.maiatoday.giith.ui.GrooveTheme
+import net.maiatoday.giith.ui.components.BackButton
 
 const val MIN_DOT_COUNT = 2
 const val MAX_DOT_COUNT = 200
@@ -45,6 +46,9 @@ fun ChoicesPanel(
     LazyColumn(
         modifier = modifier
     ) {
+        item {
+            BackButton(Modifier.padding(8.dp), onBack)
+        }
         item {
             Text(
                 "Choices",
@@ -98,10 +102,6 @@ fun ChoicesPanel(
         item {
             Text(modifier = padding, text = version)
         }
-
-        item {
-            BackButton(Modifier.padding(8.dp), onBack)
-        }
     }
 }
 
@@ -128,55 +128,4 @@ fun StepSlider(
             onValueChangeFinished = { onChange(value.toInt()) }
         )
     }
-}
-
-@Composable
-fun ColorPicker(modifier: Modifier = Modifier, initialValue: Color, onChange: (Color) -> Unit) {
-    var color by remember { mutableStateOf(initialValue) }
-    Row(modifier = modifier) {
-        Box(modifier = Modifier.background(color).width(50.dp).fillMaxHeight().padding(8.dp))
-        Column {
-            Text("Red")
-            Slider(
-                value = color.red,
-                valueRange = 0.toFloat()..255.toFloat(),
-                onValueChange = { color = color.copy(red = it); onChange(color) },
-                onValueChangeFinished = { onChange(color) }
-            )
-            Text("Green")
-            Slider(
-                value = color.red,
-                valueRange = 0.toFloat()..255.toFloat(),
-                onValueChange = { color = color.copy(green = it); onChange(color) },
-                onValueChangeFinished = { onChange(color) }
-            )
-            Text("Blue")
-            Slider(
-                value = color.red,
-                valueRange = 0.toFloat()..255.toFloat(),
-                onValueChange = { color = color.copy(blue = it); onChange(color) },
-                onValueChangeFinished = { onChange(color) }
-            )
-        }
-
-    }
-}
-
-
-@Composable
-fun DoodleChoicesPanelPreview() {
-    GrooveTheme {
-        val modifier = Modifier
-            .fillMaxSize()
-            .clipToBounds()
-        ChoicesPanel(modifier, Choices()) {}
-    }
-}
-
-@Composable
-fun ColorPickerPreview() {
-    val modifier = Modifier
-        .fillMaxSize()
-        .clipToBounds()
-    ColorPicker(modifier, Color.Magenta) {}
 }

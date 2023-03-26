@@ -3,20 +3,25 @@ package net.maiatoday.giith.sketch
 import androidx.compose.animation.animateColor
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.*
 import androidx.compose.ui.graphics.drawscope.*
-import net.maiatoday.giith.ui.components.drawModifier
 import net.maiatoday.giith.tools.DOT_COUNT
 import net.maiatoday.giith.tools.randomColor
 import net.maiatoday.giith.tools.randomGrey
 import net.maiatoday.giith.tools.randomOffset
 import net.maiatoday.giith.ui.BlueyBlack
 
+private val drawModifier = Modifier
+    .fillMaxSize()
+    .clipToBounds()
 //region Triangle walk
 @Composable
 fun TriangleWalk() {

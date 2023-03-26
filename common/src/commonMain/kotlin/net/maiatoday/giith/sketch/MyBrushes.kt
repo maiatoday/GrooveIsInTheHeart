@@ -3,18 +3,22 @@ package net.maiatoday.giith.sketch
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.Fill
 import androidx.compose.ui.unit.dp
-import net.maiatoday.giith.ui.components.drawModifier
 import net.maiatoday.giith.ui.TrollHair
 
+private val drawModifier = Modifier
+    .fillMaxSize()
+    .clipToBounds()
 //region Gradient Brush
 val brush = Brush.verticalGradient(listOf(TrollHair, Color.White))
 //val brush = Brush.horizontalGradient(listOf(Color.Red, Color.Magenta, Color.White, Color.Red))
