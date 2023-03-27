@@ -8,6 +8,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import net.maiatoday.giith.ui.components.BackButton
+import net.maiatoday.giith.ui.components.ConstructionGuy
 import net.maiatoday.magicsprinkles.ui.component.UnderConstructionMarquee
 
 @Composable
@@ -28,7 +29,7 @@ fun UnderConstructionScreen(onBack: () -> Unit = { }) {
             )
             UnderConstructionMarquee()
             Spacer(modifier = Modifier.height(16.dp))
-            //Cone()
+            ConstructionGuy()
             Text(text = "🚧🔥🚧")
             Spacer(modifier = Modifier.height(16.dp))
             UnderConstructionMarquee()

@@ -16,6 +16,7 @@ kotlin {
                 api(compose.material)
                 // Needed only for preview.
                 implementation(compose.preview)
+                implementation("org.jetbrains.compose.components:components-animatedimage-desktop:1.3.1")
             }
         }
         named("androidMain") {

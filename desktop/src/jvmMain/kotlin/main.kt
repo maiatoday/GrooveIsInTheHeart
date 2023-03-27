@@ -7,7 +7,6 @@ fun main() = application {
     Window(
         title = "Groove is in the 💗",
         state = rememberWindowState(width = 1200.dp, height = 800.dp),
-        resizable = false,
         onCloseRequest = ::exitApplication
     ) {
         App()
