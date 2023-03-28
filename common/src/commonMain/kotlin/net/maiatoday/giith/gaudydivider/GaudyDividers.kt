@@ -9,16 +9,22 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.Fill
 import androidx.compose.ui.unit.Dp
 import net.maiatoday.giith.rainbowtext.vividRainbow
-import net.maiatoday.giith.ui.BlueyBlack
+import net.maiatoday.giith.ui.*
 
-//private val defaultBrush = Brush.verticalGradient(listOf(TrollHair, Color.White))
-private val defaultBrush = Brush.radialGradient(vividRainbow)
+private val sparkColours = listOf(
+    Oros,
+    Color.Yellow,
+    TasteyWheat,
+    Color.White,
+    SherbetBomb,
+)
 
 @Composable
-fun RainbowDivider(modifier: Modifier = Modifier, brush: Brush = defaultBrush, height: Dp) {
+fun SparkDivider(modifier: Modifier = Modifier, height: Dp) {
     val infiniteTransition = rememberInfiniteTransition()
     val offsetX by infiniteTransition.animateFloat(
         initialValue = 0.0f,
@@ -31,7 +37,7 @@ fun RainbowDivider(modifier: Modifier = Modifier, brush: Brush = defaultBrush, h
     Canvas(modifier = modifier.fillMaxWidth().height(height)) {
         drawRect(
             brush = Brush.radialGradient(
-                colors = vividRainbow + BlueyBlack,
+                colors = sparkColours,
                 center = Offset(offsetX * size.width, center.y)
             ),
             style = Fill,

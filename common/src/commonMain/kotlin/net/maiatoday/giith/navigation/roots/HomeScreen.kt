@@ -10,7 +10,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import net.maiatoday.giith.gaudydivider.RainbowDivider
+import net.maiatoday.giith.gaudydivider.SparkDivider
 import net.maiatoday.giith.navigation.Screen
 import net.maiatoday.giith.navigation.Screen.Home
 
@@ -28,7 +28,7 @@ fun HomeScreen(
                 }
             }
             Spacer(Modifier.height(16.dp))
-            RainbowDivider(height = 16.dp)
+            SparkDivider(height = 16.dp)
         }
     }
 }
