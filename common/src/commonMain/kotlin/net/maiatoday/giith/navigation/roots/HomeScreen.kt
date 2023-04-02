@@ -16,6 +16,7 @@ import net.maiatoday.giith.gaudydivider.SparkDivider
 import net.maiatoday.giith.navigation.Screen
 import net.maiatoday.giith.navigation.Screen.Home
 import net.maiatoday.giith.rainbowtext.SnappyRainbowText
+import net.maiatoday.giith.tiles.Starfield
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
@@ -24,6 +25,7 @@ fun HomeScreen(
     switchChildScreen: (screen: Screen) -> Unit = {}
 ) {
     Surface(modifier = Modifier.fillMaxSize()) {
+        if (groovy) Starfield()
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             for (s in Screen.values()) {
                 if (s != Home) {
