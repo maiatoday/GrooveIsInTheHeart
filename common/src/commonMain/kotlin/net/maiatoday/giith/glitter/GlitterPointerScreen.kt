@@ -8,10 +8,9 @@ import androidx.compose.ui.Modifier
 import net.maiatoday.giith.ui.components.BackButton
 
 @Composable
-fun GlitterPointerScreen(onBack: () -> Unit = { }) {
+fun GlitterPointerScreen() {
     Surface(modifier = Modifier.fillMaxSize()) {
         Column {
-            BackButton(onBack = onBack)
             GlitterBox()
         }
     }

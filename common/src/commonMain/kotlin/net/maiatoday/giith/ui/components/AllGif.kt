@@ -59,9 +59,18 @@ fun Pony() {
 }
 
 @Composable
-fun ConstructionGuy() {
+fun ConstructionWorker() {
     Image(
         loadOrNull { loadResourceAnimatedImage("images/construction.gif") }?.animate() ?: ImageBitmap.Blank,
+        contentDescription = null,
+        Modifier.size(100.dp)
+    )
+}
+
+@Composable
+fun Flame() {
+    Image(
+        loadOrNull { loadResourceAnimatedImage("images/flame4.gif") }?.animate() ?: ImageBitmap.Blank,
         contentDescription = null,
         Modifier.size(100.dp)
     )

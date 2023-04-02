@@ -28,7 +28,7 @@ data class Choices(
     val color1: Color = Color.White,
     val color2: Color = Color.Black,
     val color3: Color = Color.Red,
-    val size:IntSize = IntSize(600,600)
+    val size: IntSize = IntSize(600, 600)
 )
 
 val padding = Modifier.padding(8.dp)
@@ -37,18 +37,14 @@ val padding = Modifier.padding(8.dp)
 fun ChoicesPanel(
     modifier: Modifier,
     choices: Choices,
-    version:String = "",
+    version: String = "",
     onNewPoints: () -> Unit = {},
-    onBack: () -> Unit = {},
     onValueChange: (Choices) -> Unit
 ) {
 
     LazyColumn(
         modifier = modifier
     ) {
-        item {
-            BackButton(Modifier.padding(8.dp), onBack)
-        }
         item {
             Text(
                 "Choices",

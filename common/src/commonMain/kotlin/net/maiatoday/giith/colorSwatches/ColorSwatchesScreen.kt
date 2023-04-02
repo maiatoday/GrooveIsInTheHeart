@@ -1,4 +1,4 @@
-package net.maiatoday.giith.navigation.roots
+package net.maiatoday.giith.colorSwatches
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -10,15 +10,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import net.maiatoday.giith.ui.components.BackButton
 import net.maiatoday.giith.ui.components.Pony
-import net.maiatoday.giith.ui.components.Swatch
 import net.maiatoday.giith.ui.components.Troll
 import net.maiatoday.giith.ui.grooveColorNames
 
 @Composable
-fun ColorSwatchesScreen(onBack: () -> Unit = { }) {
+fun ColorSwatchesScreen() {
     Surface(modifier = Modifier.fillMaxSize()) {
         Row {
-            BackButton(onBack = onBack)
             LazyVerticalGrid(
                 columns = GridCells.Adaptive(minSize = 172.dp)
             ) {

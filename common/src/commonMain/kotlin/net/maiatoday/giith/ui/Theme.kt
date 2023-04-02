@@ -34,7 +34,7 @@ private val DarkColorPalette = darkColors(
     background = CoughSyrup,
     onBackground = Color.White,
     surface = BlueyBlack,
-    onSurface =  Color.White
+    onSurface = Color.White
 
     /* Other default colors to override
     background = Color.White,
@@ -45,11 +45,16 @@ private val DarkColorPalette = darkColors(
     onSurface = Color.Black,
     */
 )
+
+enum class ThemeChoice {
+    Comic, Times
+}
+
 @Composable
-fun GrooveTheme(content: @Composable () -> Unit) {
+fun GrooveTheme(themeChoice: ThemeChoice = ThemeChoice.Times, content: @Composable () -> Unit) {
     MaterialTheme(
         colors = DarkColorPalette,
-        typography = grooveTypography,
+        typography = if (themeChoice == ThemeChoice.Comic) grooveComicTypography else grooveTimesTypography,
         content = content
     )
 }

@@ -7,8 +7,7 @@ import androidx.compose.ui.Modifier
 import net.maiatoday.giith.ui.components.BackButton
 
 @Composable
-fun GuestBookScreen(onBack: () -> Unit = { }) {
+fun GuestBookScreen() {
     Surface(modifier = Modifier.fillMaxSize()) {
-        BackButton(onBack = onBack)
     }
 }

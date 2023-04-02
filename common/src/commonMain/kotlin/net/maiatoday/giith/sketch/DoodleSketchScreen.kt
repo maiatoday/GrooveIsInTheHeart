@@ -14,7 +14,7 @@ import getPlatformName
 import net.maiatoday.giith.tools.buildPoints
 
 @Composable
-fun DoodleSketchScreen(onBack: () -> Unit = { }) {
+fun DoodleSketchScreen() {
     var choices by remember { mutableStateOf(Choices()) }
     var points by remember { mutableStateOf(buildPoints(choices.size, MAX_DOT_COUNT)) }
 
@@ -32,8 +32,7 @@ fun DoodleSketchScreen(onBack: () -> Unit = { }) {
             modifier = settingsModifier,
             choices = choices,
             version = "Hello ${getPlatformName()}",
-            onNewPoints = { points = buildPoints(choices.size, MAX_DOT_COUNT) },
-            onBack = onBack
+            onNewPoints = { points = buildPoints(choices.size, MAX_DOT_COUNT) }
         ) { choices = it }
         Surface(modifier = pageModifier.onSizeChanged {
             points = buildPoints(it, MAX_DOT_COUNT)

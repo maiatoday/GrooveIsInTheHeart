@@ -19,7 +19,7 @@ import net.maiatoday.giith.ui.components.BackButton
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
-fun RainbowTextScreen(onBack: () -> Unit = { }) {
+fun RainbowTextScreen() {
     Surface(modifier = Modifier.fillMaxSize()) {
 
         var text by rememberSaveable { mutableStateOf("This ain't no disco!") }
@@ -27,8 +27,6 @@ fun RainbowTextScreen(onBack: () -> Unit = { }) {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            BackButton(onBack = onBack)
-
             val spacer = Modifier.height(16.dp)
             Text(
                 "🌈",

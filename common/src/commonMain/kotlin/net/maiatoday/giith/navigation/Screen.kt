@@ -4,12 +4,12 @@ enum class Screen {
     Home,
     ColorSwatches,
     DoodleSketch,
-    RainbowText,
     Blink,
+    RainbowText,
     VisitorCounter,
     GlitterPointer,
     UnderConstruction,
     HeartPath,
+    GuestBook,
     Links,
-    GuestBook
 }

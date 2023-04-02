@@ -16,7 +16,7 @@ import net.maiatoday.giith.ui.components.BackButton
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
-fun BlinkScreen(onBack: () -> Unit = { }) {
+fun BlinkScreen() {
     Surface(modifier = Modifier.fillMaxSize()) {
         var text by rememberSaveable { mutableStateOf("<blink>") }
         Column(
@@ -24,7 +24,6 @@ fun BlinkScreen(onBack: () -> Unit = { }) {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            BackButton(onBack = onBack)
             val spacer = Modifier.height(16.dp)
             Text(
                 "<blink>",

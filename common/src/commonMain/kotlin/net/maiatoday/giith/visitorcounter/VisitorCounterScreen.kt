@@ -12,7 +12,7 @@ import net.maiatoday.giith.ui.components.BackButton
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
-fun VisitorCounterScreen(onBack: () -> Unit = { }) {
+fun VisitorCounterScreen() {
     var count by remember { mutableStateOf<Int>(0) }
 
     Surface(modifier = Modifier.fillMaxSize()) {
@@ -20,7 +20,6 @@ fun VisitorCounterScreen(onBack: () -> Unit = { }) {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            BackButton(onBack = onBack)
             Counter(
                 modifier = Modifier.padding(4.dp),
                 style = MaterialTheme.typography.h3,

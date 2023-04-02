@@ -7,8 +7,7 @@ import androidx.compose.ui.Modifier
 import net.maiatoday.giith.ui.components.BackButton
 
 @Composable
-fun LinksScreen(onBack: () -> Unit = { }) {
+fun LinksScreen() {
     Surface(modifier = Modifier.fillMaxSize()) {
-        BackButton(onBack = onBack)
     }
 }

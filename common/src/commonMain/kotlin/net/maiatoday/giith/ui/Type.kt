@@ -7,6 +7,10 @@ expect val ComicNeue: FontFamily
 expect val SourceSerif: FontFamily
 
 // Set of Material typography styles to start with
-val grooveTypography = Typography(
+val grooveComicTypography = Typography(
     defaultFontFamily = ComicNeue,
+)
+
+val grooveTimesTypography = Typography(
+    defaultFontFamily = SourceSerif,
 )

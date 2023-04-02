@@ -8,11 +8,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import net.maiatoday.giith.ui.components.BackButton
-import net.maiatoday.giith.ui.components.ConstructionGuy
+import net.maiatoday.giith.ui.components.ConstructionWorker
 import net.maiatoday.magicsprinkles.ui.component.UnderConstructionMarquee
 
 @Composable
-fun UnderConstructionScreen(onBack: () -> Unit = { }) {
+fun UnderConstructionScreen() {
     Surface(modifier = Modifier.fillMaxSize()) {
         Column(
             modifier = Modifier.fillMaxSize(),
@@ -20,7 +20,6 @@ fun UnderConstructionScreen(onBack: () -> Unit = { }) {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            BackButton(onBack = onBack)
             UnderConstructionMarquee()
             Chevron(
                 modifier = Modifier
@@ -29,7 +28,7 @@ fun UnderConstructionScreen(onBack: () -> Unit = { }) {
             )
             UnderConstructionMarquee()
             Spacer(modifier = Modifier.height(16.dp))
-            ConstructionGuy()
+            ConstructionWorker()
             Text(text = "🚧🔥🚧")
             Spacer(modifier = Modifier.height(16.dp))
             UnderConstructionMarquee()

@@ -7,8 +7,8 @@ import androidx.compose.ui.Modifier
 import net.maiatoday.giith.ui.components.BackButton
 
 @Composable
-fun HeartPathScreen(onBack: () -> Unit = { }) {
+fun HeartPathScreen() {
     Surface(modifier = Modifier.fillMaxSize()) {
-        BackButton(onBack = onBack)
+
     }
 }
