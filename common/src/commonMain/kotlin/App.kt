@@ -2,9 +2,9 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material.Button
-import androidx.compose.material.Switch
-import androidx.compose.material.Text
+import androidx.compose.material3.Button
+import androidx.compose.material3.Switch
+import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -18,6 +18,7 @@ import net.maiatoday.giith.navigation.roots.HomeScreen
 import net.maiatoday.giith.navigation.roots.LinksScreen
 import net.maiatoday.giith.rainbowtext.RainbowTextScreen
 import net.maiatoday.giith.sketch.DoodleSketchScreen
+import net.maiatoday.giith.tiles.TilesScreen
 import net.maiatoday.giith.ui.GrooveTheme
 import net.maiatoday.giith.ui.ThemeChoice.Comic
 import net.maiatoday.giith.ui.ThemeChoice.Times
@@ -64,6 +65,7 @@ fun App() {
                 VisitorCounter -> VisitorCounterScreen()
                 GlitterPointer -> GlitterPointerScreen()
                 UnderConstruction -> UnderConstructionScreen()
+                Tiles -> TilesScreen()
                 HeartPath -> HeartPathScreen()
                 GuestBook -> GuestBookScreen()
                 Links -> LinksScreen()

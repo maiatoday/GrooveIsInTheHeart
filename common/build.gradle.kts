@@ -13,7 +13,7 @@ kotlin {
             dependencies {
                 api(compose.runtime)
                 api(compose.foundation)
-                api(compose.material)
+                api(compose.material3)
                 // Needed only for preview.
                 implementation(compose.preview)
                 implementation("org.jetbrains.compose.components:components-animatedimage-desktop:1.3.1")

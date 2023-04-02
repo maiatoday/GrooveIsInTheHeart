@@ -2,10 +2,7 @@ package net.maiatoday.giith.rainbowtext
 
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.material.TextField
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -15,9 +12,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import net.maiatoday.giith.ui.components.BackButton
 
-@OptIn(ExperimentalAnimationApi::class)
+@OptIn(ExperimentalAnimationApi::class, ExperimentalMaterial3Api::class)
 @Composable
 fun RainbowTextScreen() {
     Surface(modifier = Modifier.fillMaxSize()) {
@@ -42,19 +38,19 @@ fun RainbowTextScreen() {
             MultiColorText(
                 text = text,
                 modifier = Modifier.padding(8.dp),
-                style = MaterialTheme.typography.h5
+                style = MaterialTheme.typography.headlineMedium
             )
             Spacer(modifier = spacer)
             SnappyRainbowText(
                 text = text,
                 modifier = Modifier.padding(8.dp),
-                style = MaterialTheme.typography.h4
+                style = MaterialTheme.typography.headlineMedium
             )
             Spacer(modifier = spacer)
             TwoColorSmoothText(
                 text = text,
                 modifier = Modifier.padding(8.dp),
-                style = MaterialTheme.typography.h6,
+                style = MaterialTheme.typography.headlineSmall,
                 startColor = Color.Magenta,
                 endColor = Color.Cyan,
 
@@ -63,28 +59,28 @@ fun RainbowTextScreen() {
             MultiColorSmoothText(
                 text = text,
                 modifier = Modifier.padding(8.dp),
-                style = MaterialTheme.typography.h5,
+                style = MaterialTheme.typography.headlineSmall,
                 duration = 1200
             )
             Spacer(modifier = spacer)
             SmoothRainbowText(
                 text = text,
                 modifier = Modifier.padding(8.dp),
-                style = MaterialTheme.typography.h4,
+                style = MaterialTheme.typography.headlineMedium,
                 duration = 400
             )
             Spacer(modifier = spacer)
             SmoothRainbowText(
                 text = text,
                 modifier = Modifier.padding(8.dp),
-                style = MaterialTheme.typography.h4,
+                style = MaterialTheme.typography.headlineMedium,
                 duration = 1200
             )
             Spacer(modifier = spacer)
             SmoothRainbowText(
                 text = text,
                 modifier = Modifier.padding(8.dp),
-                style = MaterialTheme.typography.h4,
+                style = MaterialTheme.typography.headlineMedium,
                 duration = 6400
             )
         }

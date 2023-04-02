@@ -1,19 +1,17 @@
 package net.maiatoday.giith.sketch
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material.*
+import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import net.maiatoday.giith.ui.GrooveTheme
-import net.maiatoday.giith.ui.components.BackButton
 
 const val MIN_DOT_COUNT = 2
 const val MAX_DOT_COUNT = 200
@@ -49,7 +47,7 @@ fun ChoicesPanel(
             Text(
                 "Choices",
                 modifier = padding,
-                color = MaterialTheme.colors.primaryVariant,
+                color = MaterialTheme.colorScheme.primary,
                 fontWeight = FontWeight.Bold,
             )
         }

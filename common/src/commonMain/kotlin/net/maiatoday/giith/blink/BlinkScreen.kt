@@ -3,6 +3,7 @@ package net.maiatoday.giith.blink
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -12,9 +13,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import net.maiatoday.giith.ui.*
-import net.maiatoday.giith.ui.components.BackButton
 
-@OptIn(ExperimentalAnimationApi::class)
+@OptIn(ExperimentalAnimationApi::class, ExperimentalMaterial3Api::class)
 @Composable
 fun BlinkScreen() {
     Surface(modifier = Modifier.fillMaxSize()) {
@@ -36,18 +36,18 @@ fun BlinkScreen() {
                 },
                 label = { Text("Blink message") }
             )
-            ThemedBlinkText(
-                text = text,
-                modifier = Modifier.padding(8.dp),
-                style = MaterialTheme.typography.h5
-            )
+//            ThemedBlinkText(
+//                text = text,
+//                modifier = Modifier.padding(8.dp),
+//                style = MaterialTheme.typography.headlineLarge
+//            )
             Spacer(modifier = spacer)
             BlinkText(
                 text = text,
                 color = Lime,
                 modifier = Modifier
                     .padding(8.dp),
-                style = MaterialTheme.typography.h4,
+                style = MaterialTheme.typography.headlineMedium,
                 durationMillis = 2000
             )
             Spacer(modifier = spacer)

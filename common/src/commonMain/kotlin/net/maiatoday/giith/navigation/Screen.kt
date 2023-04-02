@@ -9,6 +9,7 @@ enum class Screen {
     VisitorCounter,
     GlitterPointer,
     UnderConstruction,
+    Tiles,
     HeartPath,
     GuestBook,
     Links,
