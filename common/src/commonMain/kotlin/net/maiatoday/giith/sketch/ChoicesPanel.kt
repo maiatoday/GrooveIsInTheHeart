@@ -12,6 +12,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import net.maiatoday.giith.ui.components.StepSlider
 
 const val MIN_DOT_COUNT = 2
 const val MAX_DOT_COUNT = 200
@@ -96,30 +97,5 @@ fun ChoicesPanel(
         item {
             Text(modifier = padding, text = version)
         }
-    }
-}
-
-@Composable
-fun StepSlider(
-    initialValue: Int,
-    minValue: Int,
-    maxValue: Int,
-    label: String,
-    onChange: (Int) -> Unit,
-) {
-    var value by remember { mutableStateOf(initialValue.toFloat()) }
-    Column(
-        modifier = Modifier.padding(10.dp)
-    ) {
-        Row {
-            Text(text = "$label: ", fontSize = 14.sp)
-            Text(text = "%d".format(value.toInt()), fontSize = 14.sp)
-        }
-        Slider(
-            value = value,
-            valueRange = minValue.toFloat()..maxValue.toFloat(),
-            onValueChange = { value = it; onChange(value.toInt()) },
-            onValueChangeFinished = { onChange(value.toInt()) }
-        )
     }
 }

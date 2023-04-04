@@ -12,7 +12,6 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.Fill
 import androidx.compose.ui.unit.Dp
-import net.maiatoday.giith.rainbowtext.vividRainbow
 import net.maiatoday.giith.ui.*
 
 private val sparkColours = listOf(

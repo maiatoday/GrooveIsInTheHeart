@@ -28,7 +28,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.round
 import androidx.compose.ui.unit.toSize
 import kotlinx.coroutines.isActive
-import net.maiatoday.giith.rainbowtext.vividRainbow
+import net.maiatoday.giith.ui.vividRainbow
 import net.maiatoday.giith.glitter.GlitterState.Companion.sizeChanged
 import net.maiatoday.giith.glitter.GlitterState.Companion.updateSource
 

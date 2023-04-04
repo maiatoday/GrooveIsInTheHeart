@@ -1,4 +1,4 @@
-package net.maiatoday.giith.rainbowtext
+package net.maiatoday.giith.ui
 
 import androidx.compose.ui.graphics.Color
 import net.maiatoday.giith.ui.*
