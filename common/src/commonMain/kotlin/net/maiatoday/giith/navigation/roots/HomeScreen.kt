@@ -16,7 +16,7 @@ import net.maiatoday.giith.gaudydivider.SparkDivider
 import net.maiatoday.giith.navigation.Screen
 import net.maiatoday.giith.navigation.Screen.Home
 import net.maiatoday.giith.rainbowtext.SnappyRainbowText
-import net.maiatoday.giith.tiles.Starfield
+import net.maiatoday.giith.wallpaper.Starfield
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable

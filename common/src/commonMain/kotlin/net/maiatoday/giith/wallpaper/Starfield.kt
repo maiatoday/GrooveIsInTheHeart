@@ -1,4 +1,4 @@
-package net.maiatoday.giith.tiles
+package net.maiatoday.giith.wallpaper
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box

@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import net.maiatoday.giith.blink.BlinkScreen
 import net.maiatoday.giith.colorSwatches.ColorSwatchesScreen
 import net.maiatoday.giith.glitter.GlitterPointerScreen
+import net.maiatoday.giith.memphis.MemphisScreen
 import net.maiatoday.giith.navigation.Screen.*
 import net.maiatoday.giith.navigation.roots.GuestBookScreen
 import net.maiatoday.giith.navigation.roots.HeartPathScreen
@@ -18,7 +19,7 @@ import net.maiatoday.giith.navigation.roots.HomeScreen
 import net.maiatoday.giith.navigation.roots.LinksScreen
 import net.maiatoday.giith.rainbowtext.RainbowTextScreen
 import net.maiatoday.giith.sketch.DoodleSketchScreen
-import net.maiatoday.giith.tiles.TilesScreen
+import net.maiatoday.giith.wallpaper.TilesScreen
 import net.maiatoday.giith.ui.GrooveTheme
 import net.maiatoday.giith.ui.ThemeChoice.Comic
 import net.maiatoday.giith.ui.ThemeChoice.Times
@@ -60,6 +61,7 @@ fun App() {
                 Home -> HomeScreen(groovy) { screen -> screenState = screen }
                 ColorSwatches -> ColorSwatchesScreen()
                 DoodleSketch -> DoodleSketchScreen()
+                Memphis -> MemphisScreen()
                 Blink -> BlinkScreen()
                 RainbowText -> RainbowTextScreen()
                 VisitorCounter -> VisitorCounterScreen()

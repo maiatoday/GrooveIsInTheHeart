@@ -43,7 +43,7 @@ fun AnimatedImageLoader(url:String = babyGif) {
 @Composable
 fun Troll() {
     Image(
-        loadOrNull { loadResourceAnimatedImage("images/troll.gif") }?.animate() ?: ImageBitmap.Blank,
+        loadOrNull { loadResourceAnimatedImage("drawable/troll.gif") }?.animate() ?: ImageBitmap.Blank,
         contentDescription = null,
         Modifier.size(100.dp)
     )
@@ -52,7 +52,7 @@ fun Troll() {
 @Composable
 fun Pony() {
     Image(
-        loadOrNull { loadResourceAnimatedImage("images/pony.gif") }?.animate() ?: ImageBitmap.Blank,
+        loadOrNull { loadResourceAnimatedImage("drawable/pony.gif") }?.animate() ?: ImageBitmap.Blank,
         contentDescription = null,
         Modifier.size(100.dp)
     )
@@ -61,7 +61,7 @@ fun Pony() {
 @Composable
 fun ConstructionWorker() {
     Image(
-        loadOrNull { loadResourceAnimatedImage("images/construction.gif") }?.animate() ?: ImageBitmap.Blank,
+        loadOrNull { loadResourceAnimatedImage("drawable/construction.gif") }?.animate() ?: ImageBitmap.Blank,
         contentDescription = null,
         Modifier.size(100.dp)
     )
@@ -70,7 +70,7 @@ fun ConstructionWorker() {
 @Composable
 fun Flame() {
     Image(
-        loadOrNull { loadResourceAnimatedImage("images/flame4.gif") }?.animate() ?: ImageBitmap.Blank,
+        loadOrNull { loadResourceAnimatedImage("drawable/flame4.gif") }?.animate() ?: ImageBitmap.Blank,
         contentDescription = null,
         Modifier.size(100.dp)
     )
