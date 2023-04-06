@@ -23,6 +23,7 @@ data class MemphisChoices(
     val brightDots:Boolean = true,
     val brightTriangles:Boolean = true,
     val brightWaves:Boolean = true,
+    val triangleFill:Boolean = true,
     val size: IntSize = IntSize(600, 600)
 )
 
@@ -79,6 +80,12 @@ fun MemphisPanel(
             Text(modifier = padding, text = "Bright triangles")
             Switch(modifier = padding, checked = choices.brightTriangles, onCheckedChange = { newValue ->
                 onValueChange(choices.copy(brightTriangles = newValue))
+            })
+        }
+        item {
+            Text(modifier = padding, text = "Triangle fill")
+            Switch(modifier = padding, checked = choices.triangleFill, onCheckedChange = { newValue ->
+                onValueChange(choices.copy(triangleFill = newValue))
             })
         }
         item {

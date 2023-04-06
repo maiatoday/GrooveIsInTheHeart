@@ -8,12 +8,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.drawscope.DrawScope
-import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.graphics.Path
+import androidx.compose.ui.graphics.drawscope.*
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.unit.dp
 import getPlatformName
 import net.maiatoday.giith.tools.buildPoints
+import net.maiatoday.giith.tools.randomDegrees
 import net.maiatoday.giith.tools.randomGrey
 import net.maiatoday.giith.ui.pastelRainbow
 import net.maiatoday.giith.ui.vividRainbow
@@ -52,9 +53,9 @@ fun MemphisScreen() {
             wavePoints = buildPoints(it, MAX_SHAPE_COUNT)
             choices = choices.copy(size = it)
         }) {
+            if (choices.triangleCount > 0) AllTheTriangles(choices, trianglePoints)
             if (choices.dotCount > 0) AllTheDonuts(choices, donutPoints)
             if (choices.waveCount > 0) AllTheWaves(choices, wavePoints)
-            if (choices.triangleCount > 0) AllTheTriangles(choices, trianglePoints)
         }
     }
 }
@@ -64,7 +65,7 @@ fun AllTheDonuts(choices: MemphisChoices, points: List<Offset>) {
     Canvas(modifier = Modifier.fillMaxSize()) {
         repeat(choices.dotCount) {
             drawCircle(
-                color = if (choices.brightDots) pastelRainbow.random() else randomGrey(),
+                color = if (choices.brightDots) vividRainbow.random() else randomGrey(),
                 center = points[it],
                 radius = Random.nextInt(10, 50).toFloat(),
                 style = Stroke(width = 10f),
@@ -77,35 +78,73 @@ fun AllTheDonuts(choices: MemphisChoices, points: List<Offset>) {
 fun AllTheTriangles(choices: MemphisChoices, points: List<Offset>) {
     Canvas(modifier = Modifier.fillMaxSize()) {
         repeat(choices.triangleCount) {
-            drawTriangle(
-                color = if (choices.brightTriangles) pastelRainbow.random() else randomGrey(),
-                shadow = if (choices.brightTriangles) vividRainbow.random() else randomGrey(),
-                points[it]
-            )
-
+            withTransform({
+                translate(points[it].x, points[it].y)
+                rotate(
+                    degrees = randomDegrees(),
+                    pivot = Offset.Zero
+                )
+            }) {
+                drawTriangleShadow(
+                    color = if (choices.brightTriangles) pastelRainbow.random() else randomGrey(),
+                    shadow = if (choices.brightTriangles) vividRainbow.random() else randomGrey(),
+                    offset = Offset.Zero,
+                    fill = choices.triangleFill
+                )
+            }
         }
     }
 }
 
-fun DrawScope.drawTriangle(color: Color, shadow: Color, offset: Offset) {
-    drawLine(shadow, offset, Offset(offset.x+10, offset.y+20))
-    drawLine(color, Offset(offset.x+2, offset.y+2), Offset(offset.x+2+10, offset.y+2+20))
+fun DrawScope.drawTriangleShadow(color: Color, shadow: Color, offset: Offset, fill: Boolean) {
+    val delta = Offset(80f, 80f)
+    drawTriangle(shadow, Offset(offset.x + 10, offset.y + 10), delta, fill)
+    drawTriangle(color, offset, delta, fill)
+}
+
+fun DrawScope.drawTriangle(color: Color, center: Offset, delta: Offset, fill: Boolean) {
+    val path = Path()
+    path.moveTo(center.x, center.y - delta.y)
+    path.lineTo(center.x - delta.x, center.y + delta.y)
+    path.lineTo(center.x + delta.x, center.y + delta.y)
+    path.close()
+    drawPath(path, color, style = if (fill) Fill else Stroke(width = 10f))
 }
 
 @Composable
 fun AllTheWaves(choices: MemphisChoices, points: List<Offset>) {
     Canvas(modifier = Modifier.fillMaxSize()) {
         repeat(choices.waveCount) {
-            drawWave(
-                color = if (choices.brightWaves) pastelRainbow.random() else randomGrey(),
-                shadow = if (choices.brightWaves) vividRainbow.random() else randomGrey(),
-                points[it]
-            )
+            withTransform({
+                translate(points[it].x, points[it].y)
+                rotate(
+                    degrees = randomDegrees(),
+                    pivot = Offset.Zero
+                )
+            }) {
+                drawWaveShadow(
+                    color = if (choices.brightWaves) pastelRainbow.random() else randomGrey(),
+                    shadow = if (choices.brightWaves) vividRainbow.random() else randomGrey(),
+                    Offset.Zero
+                )
+            }
         }
     }
-
 }
 
-fun DrawScope.drawWave(color: Color, shadow: Color, offset: Offset) {
+fun DrawScope.drawWaveShadow(color: Color, shadow: Color, offset: Offset) {
+    val delta = Offset(50f, 80f)
+    drawWave(shadow, Offset(offset.x + 10, offset.y + 10), delta)
+    drawWave(color, offset, delta)
+}
 
+fun DrawScope.drawWave(color: Color, center: Offset, delta: Offset) {
+    val zigzag = Path()
+    zigzag.moveTo(center.x - delta.x, center.y)
+    zigzag.lineTo(center.x - delta.x / 2, center.y - delta.y)
+    zigzag.lineTo(center.x, center.y)
+    zigzag.lineTo(center.x + delta.x / 2, center.y - delta.y)
+    zigzag.lineTo(center.x + delta.x, center.y)
+    zigzag.lineTo(center.x + delta.x + delta.x / 2, center.y- delta.y)
+    drawPath(zigzag, color, style = Stroke(width = 10f))
 }

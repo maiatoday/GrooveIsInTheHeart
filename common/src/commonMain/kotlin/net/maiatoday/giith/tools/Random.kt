@@ -31,6 +31,8 @@ fun randomOffset(size: Size) =
         y = Random.nextInt(0, size.height.toInt()).toFloat()
     )
 
+fun randomDegrees() = Random.nextInt(0, 360).toFloat()
+
 fun randomRotations(max: Int, multiplier: Float = 5f) = buildList<Float> {
     repeat(max) {
         add(Random.nextFloat() * multiplier - multiplier)
