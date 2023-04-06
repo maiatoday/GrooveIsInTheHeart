@@ -1,4 +1,4 @@
-package net.maiatoday.giith.sketch
+package net.maiatoday.giith.heartpath
 
 import androidx.compose.animation.animateColor
 import androidx.compose.animation.core.*
@@ -18,23 +18,11 @@ import net.maiatoday.giith.tools.randomColor
 import net.maiatoday.giith.tools.randomGrey
 import net.maiatoday.giith.tools.randomOffset
 import net.maiatoday.giith.ui.BlueyBlack
+import net.maiatoday.giith.ui.MyPonyHair
 
 private val drawModifier = Modifier
     .fillMaxSize()
     .clipToBounds()
-//region Triangle walk
-@Composable
-fun TriangleWalk() {
-    Canvas(modifier = drawModifier) {
-        val path = Path()
-        path.moveTo(0f, 0f)
-        path.lineTo(center.x, center.y)
-        path.lineTo(size.width, 0f)
-        path.close()
-        drawPath(path, Color.Magenta, style = Stroke(width = 10f))
-    }
-}
-//endregion
 
 //region Heart path
 //// Thank You https://mahendranv.github.io/posts/compose-shapes-gists/
@@ -56,24 +44,12 @@ val heartPath = Path().apply {
     close()
 }
 
-@Composable
-fun HeartEdge() {
-    Canvas(modifier = drawModifier) {
-        drawPath(
-            path = heartPath,
-            color = Color.Magenta,
-            style = Stroke(width = 5f)
-        )
-    }
-}
-//endregion
-
 //region Candy Heart
-val candyColours = listOf(Color.Red, Color.Magenta, Color(255, 105, 180))
+val candyColours = listOf(Color.Red, Color.Magenta, MyPonyHair)
 
 @Composable
-fun CandyHeart() {
-    val customBrush = remember {
+fun CandyHeartPulse() {
+    val candyBrush = remember {
         object : ShaderBrush() {
             override fun createShader(size: Size): Shader {
                 return LinearGradientShader(
@@ -85,67 +61,31 @@ fun CandyHeart() {
             }
         }
     }
+    val infiniteTransition = rememberInfiniteTransition()
+    val heartScale by infiniteTransition.animateFloat(
+        initialValue = 0.5f,
+        targetValue = 2.5f,
+        animationSpec = infiniteRepeatable(
+            animation = tween(1000, easing = FastOutSlowInEasing),
+            repeatMode = RepeatMode.Reverse
+        )
+    )
     Canvas(modifier = drawModifier) {
-        drawRect(color = BlueyBlack)
         withTransform({
-            scale(3f)
-            translate(center.x, center.y)
+            scale(heartScale)
+            translate(center.x - heartSize.width / 2, center.y - heartSize.height / 2)
+
         }) {
             drawPath(
                 path = heartPath,
-                brush = customBrush,
+                brush = candyBrush,
                 style = Fill
             )
         }
     }
 }
+
 //endregion
-
-//region Transforming hearts
-@Composable
-fun HeartCenter() {
-    Canvas(modifier = drawModifier) {
-        translate(center.x, center.y) {
-            drawPath(heartPath, Color.Red, style = Fill)
-        }
-    }
-}
-
-@Composable
-fun HeartSpin() {
-    Canvas(modifier = drawModifier) {
-        rotate(
-            degrees = 10F,
-            pivot = Offset.Zero
-        ) {
-            drawPath(heartPath, Color.Green, style = Fill)
-        }
-    }
-}
-
-@Composable
-fun HeartCenterSpin() {
-    Canvas(modifier = drawModifier) {
-        drawCircle(
-            color = Color.Magenta,
-            center = center,
-            radius = 5f,
-            style = Fill
-        )
-        withTransform({
-            translate(center.x, center.y)
-            rotate(
-                degrees = 90f,
-                pivot = Offset.Zero
-            )
-        }) {
-            drawRect(color = Color.LightGray, topLeft = Offset.Zero, size = heartSize, style = Stroke(width = 2f))
-            drawPath(heartPath, Color.Cyan, style = Fill)
-        }
-    }
-}
-//endregion
-
 //region Heart pulse
 @Composable
 fun HeartPulse() {

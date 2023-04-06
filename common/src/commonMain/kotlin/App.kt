@@ -14,7 +14,7 @@ import net.maiatoday.giith.glitter.GlitterPointerScreen
 import net.maiatoday.giith.memphis.MemphisScreen
 import net.maiatoday.giith.navigation.Screen.*
 import net.maiatoday.giith.navigation.roots.GuestBookScreen
-import net.maiatoday.giith.navigation.roots.HeartPathScreen
+import net.maiatoday.giith.heartpath.HeartPathScreen
 import net.maiatoday.giith.navigation.roots.HomeScreen
 import net.maiatoday.giith.navigation.roots.LinksScreen
 import net.maiatoday.giith.rainbowtext.RainbowTextScreen
