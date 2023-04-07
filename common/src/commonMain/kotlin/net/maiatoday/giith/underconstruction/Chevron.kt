@@ -20,6 +20,7 @@ import androidx.compose.ui.graphics.drawscope.withTransform
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import java.lang.Math.round
+import kotlin.math.roundToInt
 
 @Composable
 fun Chevron(
@@ -46,7 +47,7 @@ fun Chevron(
                 .background(bgColor)
         ) {
             val stripPx = stripWidth.toPx()
-            val count = round((size.width / stripPx))
+            val count = (size.width / stripPx).roundToInt()
             val height = size.height
 
             val delta = offset * stripPx
