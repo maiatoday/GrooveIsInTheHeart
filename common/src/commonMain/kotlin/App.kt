@@ -16,7 +16,7 @@ import net.maiatoday.giith.navigation.Screen.*
 import net.maiatoday.giith.navigation.roots.GuestBookScreen
 import net.maiatoday.giith.heartpath.HeartPathScreen
 import net.maiatoday.giith.navigation.roots.HomeScreen
-import net.maiatoday.giith.navigation.roots.LinksScreen
+import net.maiatoday.giith.links.LinksScreen
 import net.maiatoday.giith.rainbowtext.RainbowTextScreen
 import net.maiatoday.giith.sketch.DoodleSketchScreen
 import net.maiatoday.giith.wallpaper.TilesScreen
