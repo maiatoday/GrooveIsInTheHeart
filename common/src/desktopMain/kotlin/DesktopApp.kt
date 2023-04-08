@@ -3,6 +3,8 @@ import androidx.compose.runtime.Composable
 
 actual fun getPlatformName(): String = "Desktop"
 
+actual fun isAndroid() = false
+
 @Preview
 @Composable
 fun AppPreview() {

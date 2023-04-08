@@ -7,6 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.unit.dp
+import isAndroid
 import org.jetbrains.compose.animatedimage.Blank
 import org.jetbrains.compose.animatedimage.animate
 import org.jetbrains.compose.animatedimage.loadAnimatedImage
@@ -42,36 +43,45 @@ fun AnimatedImageLoader(url:String = babyGif) {
 
 @Composable
 fun Troll() {
-    Image(
-        loadOrNull { loadResourceAnimatedImage("drawable/troll.gif") }?.animate() ?: ImageBitmap.Blank,
-        contentDescription = null,
-        Modifier.size(100.dp)
-    )
+    if (!isAndroid()) {
+        Image(
+            loadOrNull { loadResourceAnimatedImage("drawable/troll.gif") }?.animate() ?: ImageBitmap.Blank,
+            contentDescription = null,
+            Modifier.size(100.dp)
+        )
+    }
 }
 
 @Composable
 fun Pony() {
-    Image(
-        loadOrNull { loadResourceAnimatedImage("drawable/pony.gif") }?.animate() ?: ImageBitmap.Blank,
-        contentDescription = null,
-        Modifier.size(100.dp)
-    )
+    if (!isAndroid()) {
+        Image(
+            loadOrNull { loadResourceAnimatedImage("drawable/pony.gif") }?.animate() ?: ImageBitmap.Blank,
+            contentDescription = null,
+            Modifier.size(100.dp)
+        )
+    }
 }
 
 @Composable
 fun ConstructionWorker() {
-    Image(
-        loadOrNull { loadResourceAnimatedImage("drawable/construction.gif") }?.animate() ?: ImageBitmap.Blank,
-        contentDescription = null,
-        Modifier.size(100.dp)
-    )
+
+    if (!isAndroid()) {
+        Image(
+            loadOrNull { loadResourceAnimatedImage("drawable/construction.gif") }?.animate() ?: ImageBitmap.Blank,
+            contentDescription = null,
+            Modifier.size(100.dp)
+        )
+    }
 }
 
 @Composable
 fun Flame() {
-    Image(
-        loadOrNull { loadResourceAnimatedImage("drawable/flame4.gif") }?.animate() ?: ImageBitmap.Blank,
-        contentDescription = null,
-        Modifier.size(100.dp)
-    )
+    if (!isAndroid()) {
+        Image(
+            loadOrNull { loadResourceAnimatedImage("drawable/flame4.gif") }?.animate() ?: ImageBitmap.Blank,
+            contentDescription = null,
+            Modifier.size(100.dp)
+        )
+    }
 }

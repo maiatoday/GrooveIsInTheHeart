@@ -60,7 +60,6 @@ fun App() {
             when (screenState) {
                 Home -> HomeScreen(groovy) { screen -> screenState = screen }
                 ColorSwatches -> ColorSwatchesScreen()
-                DoodleSketch -> DoodleSketchScreen()
                 Memphis -> MemphisScreen()
                 Blink -> BlinkScreen()
                 RainbowText -> RainbowTextScreen()
@@ -77,3 +76,5 @@ fun App() {
 }
 
 expect fun getPlatformName(): String
+
+expect fun isAndroid(): Boolean
