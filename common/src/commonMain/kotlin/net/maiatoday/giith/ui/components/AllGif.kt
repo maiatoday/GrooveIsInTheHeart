@@ -94,3 +94,14 @@ fun Baby() {
         )
     }
 }
+
+@Composable
+fun Cube() {
+    if (!isAndroid()) {
+        Image(
+            loadOrNull { loadResourceAnimatedImage("drawable/cube.gif") }?.animate() ?: ImageBitmap.Blank,
+            contentDescription = null,
+            Modifier.size(100.dp)
+        )
+    }
+}

@@ -8,13 +8,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.dp
 import net.maiatoday.giith.blink.BlinkScreen
 import net.maiatoday.giith.colorSwatches.ColorSwatchesScreen
 import net.maiatoday.giith.glitter.GlitterPointerScreen
 import net.maiatoday.giith.heartpath.HeartPathScreen
-import net.maiatoday.giith.links.LinksScreen
+import net.maiatoday.giith.mybookmarks.MyBookmarksScreen
 import net.maiatoday.giith.memphis.MemphisScreen
 import net.maiatoday.giith.navigation.Screen.*
 import net.maiatoday.giith.navigation.roots.GuestBookScreen
@@ -71,7 +69,7 @@ fun App() {
                 Wallpaper -> WallpaperScreen()
                 HeartPath -> HeartPathScreen()
                 GuestBook -> GuestBookScreen()
-                Links -> LinksScreen()
+                MyBookmarks -> MyBookmarksScreen()
                 Stars -> StarsScreen()
             }
         }
@@ -81,3 +79,5 @@ fun App() {
 expect fun getPlatformName(): String
 
 expect fun isAndroid(): Boolean
+
+expect fun openBrowser(url:String)

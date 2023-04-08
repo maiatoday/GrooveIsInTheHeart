@@ -13,5 +13,5 @@ enum class Screen {
     Stars,
     HeartPath,
     GuestBook,
-    Links,
+    MyBookmarks,
 }

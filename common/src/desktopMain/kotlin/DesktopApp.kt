@@ -6,6 +6,10 @@ actual fun getPlatformName(): String = "Desktop"
 
 actual fun isAndroid() = false
 
+actual fun openBrowser(url:String) {
+    // launch browser on the desktop
+}
+
 @Preview
 @Composable
 fun AppPreview() {

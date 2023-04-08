@@ -15,6 +15,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import net.maiatoday.giith.ui.SherbetBomb
+import net.maiatoday.giith.ui.components.SherbetBombDivider
 import net.maiatoday.giith.ui.components.StepSlider
 
 data class MemphisChoices(
@@ -64,7 +65,7 @@ fun MemphisPanel(
             )
         }
         item {
-            Spacer(modifier.background(SherbetBomb).height(2.dp).fillMaxWidth())
+            SherbetBombDivider(modifier)
         }
         item {
             StepSlider(
@@ -93,7 +94,7 @@ fun MemphisPanel(
             }
         }
         item {
-            Spacer(modifier.background(SherbetBomb).height(2.dp).fillMaxWidth())
+            SherbetBombDivider(modifier)
         }
         item {
             StepSlider(
@@ -122,7 +123,7 @@ fun MemphisPanel(
             }
         }
         item {
-            Spacer(modifier.background(SherbetBomb).height(2.dp).fillMaxWidth())
+            SherbetBombDivider(modifier)
         }
         item {
             StepSlider(
@@ -155,7 +156,7 @@ fun MemphisPanel(
             }
         }
         item {
-            Spacer(modifier.background(SherbetBomb).height(2.dp).fillMaxWidth())
+            SherbetBombDivider(modifier)
         }
         item {
             Text(modifier = padding, text = version)
