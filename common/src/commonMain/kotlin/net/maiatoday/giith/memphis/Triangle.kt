@@ -14,6 +14,7 @@ import androidx.compose.ui.graphics.drawscope.Fill
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.drawscope.withTransform
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 import net.maiatoday.giith.tools.buildPoissonDiscPoints
 import net.maiatoday.giith.tools.randomDegrees
 import net.maiatoday.giith.tools.toPx
@@ -28,8 +29,8 @@ fun AllTheTriangles(modifier: Modifier = Modifier, spacingDp: Int, sizeDp: Int, 
     BoxWithConstraints(modifier) {
         val w = this.maxWidth.toPx()
         val h = this.maxHeight.toPx()
-        val spacing = Dp(spacingDp.toFloat()).toPx()
-        val size = Dp(sizeDp.toFloat()).toPx()
+        val spacing = spacingDp.dp.toPx()
+        val size = sizeDp.dp.toPx()
         val points = buildPoissonDiscPoints(Size(w, h), spacing)
         Canvas(modifier = Modifier.fillMaxSize()) {
             for (point in points) {

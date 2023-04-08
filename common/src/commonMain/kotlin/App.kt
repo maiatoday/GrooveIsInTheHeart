@@ -8,6 +8,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 import net.maiatoday.giith.blink.BlinkScreen
 import net.maiatoday.giith.colorSwatches.ColorSwatchesScreen
 import net.maiatoday.giith.glitter.GlitterPointerScreen
@@ -71,6 +73,23 @@ fun App() {
                 GuestBook -> GuestBookScreen()
                 Links -> LinksScreen()
                 Stars -> StarsScreen()
+            }
+        }
+    }
+}
+
+enum class WindowSize {
+    COMPACT,
+    MEDIUM,
+    EXPANDED;
+
+    // Factory method that creates an instance of the class based on window width
+    companion object {
+        fun basedOnWidth(windowWidth: Dp): WindowSize {
+            return when {
+                windowWidth < 600.dp -> COMPACT
+                windowWidth < 840.dp -> MEDIUM
+                else -> EXPANDED
             }
         }
     }

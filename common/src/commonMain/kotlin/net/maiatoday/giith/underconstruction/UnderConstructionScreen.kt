@@ -7,7 +7,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import net.maiatoday.giith.ui.components.Baby
 import net.maiatoday.giith.ui.components.ConstructionWorker
+import net.maiatoday.giith.ui.components.Flame
 import net.maiatoday.magicsprinkles.ui.component.UnderConstructionMarquee
 
 @Composable
@@ -27,7 +29,11 @@ fun UnderConstructionScreen() {
             )
             UnderConstructionMarquee()
             Spacer(modifier = Modifier.height(16.dp))
-            ConstructionWorker()
+            Row {
+                Flame()
+                ConstructionWorker()
+                Flame()
+            }
             Text(text = "🚧🔥🚧")
             Spacer(modifier = Modifier.height(16.dp))
             UnderConstructionMarquee()

@@ -85,3 +85,14 @@ fun Flame() {
         )
     }
 }
+
+@Composable
+fun Baby() {
+    if (!isAndroid()) {
+        Image(
+            loadOrNull { loadResourceAnimatedImage("drawable/baby.gif") }?.animate() ?: ImageBitmap.Blank,
+            contentDescription = null,
+            Modifier.size(100.dp)
+        )
+    }
+}

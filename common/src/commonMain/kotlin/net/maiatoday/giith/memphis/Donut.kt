@@ -12,6 +12,7 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.drawscope.Fill
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 import net.maiatoday.giith.tools.buildPoissonDiscPoints
 import net.maiatoday.giith.tools.toPx
 import net.maiatoday.giith.ui.vividRainbow
@@ -23,8 +24,8 @@ fun AllTheDonuts(modifier: Modifier = Modifier, spacingDp: Int, sizeDp: Int, fil
     BoxWithConstraints(modifier) {
         val w = this.maxWidth.toPx()
         val h = this.maxHeight.toPx()
-        val spacing = Dp(spacingDp.toFloat()).toPx()
-        val size = Dp(sizeDp.toFloat()).toPx().toInt()
+        val spacing = spacingDp.dp.toPx()
+        val size = sizeDp.dp.toPx().toInt()
         val points = buildPoissonDiscPoints(Size(w, h), spacing)
         Canvas(modifier = Modifier.fillMaxSize()) {
             for (point in points) {

@@ -76,9 +76,7 @@ fun Chevron(
                     blurRadius = 8f
                 )
             ),
-           // fontSize = 32.sp,
             color = textColor,
-           // fontWeight = FontWeight.Bold,
             modifier = Modifier.align(Alignment.Center)
         )
     }
