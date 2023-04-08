@@ -16,13 +16,13 @@ import net.maiatoday.giith.ui.UltraViolet
 import net.maiatoday.giith.ui.grooveColors
 
 enum class WallpaperChoice {
-    CrazyQuilt, PinkClouds, BlueStars, UltraViolet, Starfield
+    CrazyQuilt, PinkClouds, BlueStars, UltraViolet
 }
 
 val radioGroupOptions = WallpaperChoice.values()
 
 @Composable
-fun TilesScreen() {
+fun WallpaperScreen() {
     Surface(modifier = Modifier.fillMaxSize()) {
         Column {
             var tt by remember { mutableStateOf(WallpaperChoice.CrazyQuilt) }
@@ -56,25 +56,23 @@ fun TilesScreen() {
 
 @Composable
 fun Wallpaper(choice: WallpaperChoice) {
-    if (choice == WallpaperChoice.Starfield) {
-        Starfield()
-    } else {
-        LazyVerticalGrid(
-            columns = GridCells.Fixed(7),
-            modifier = Modifier
-                .fillMaxSize()
-        ) {
-            items(50) { _ ->
-                when (choice) {
-                    WallpaperChoice.CrazyQuilt -> Box(
-                        modifier = Modifier.size(100.dp).background(grooveColors.random())
-                    )
-                    WallpaperChoice.PinkClouds -> PinkClouds()
-                    WallpaperChoice.BlueStars -> BlueStars()
-                    WallpaperChoice.UltraViolet -> UltraViolet()
-                    else -> {}
-                }
+    LazyVerticalGrid(
+        columns = GridCells.Fixed(7),
+        modifier = Modifier
+            .fillMaxSize()
+    ) {
+        items(50) { _ ->
+            when (choice) {
+                WallpaperChoice.CrazyQuilt -> Box(
+                    modifier = Modifier.size(100.dp).background(grooveColors.random())
+                )
+
+                WallpaperChoice.PinkClouds -> PinkClouds()
+                WallpaperChoice.BlueStars -> BlueStars()
+                WallpaperChoice.UltraViolet -> UltraViolet()
+                else -> {}
             }
         }
     }
+
 }

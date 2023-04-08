@@ -11,20 +11,20 @@ import androidx.compose.ui.Modifier
 import net.maiatoday.giith.blink.BlinkScreen
 import net.maiatoday.giith.colorSwatches.ColorSwatchesScreen
 import net.maiatoday.giith.glitter.GlitterPointerScreen
+import net.maiatoday.giith.heartpath.HeartPathScreen
+import net.maiatoday.giith.links.LinksScreen
 import net.maiatoday.giith.memphis.MemphisScreen
 import net.maiatoday.giith.navigation.Screen.*
 import net.maiatoday.giith.navigation.roots.GuestBookScreen
-import net.maiatoday.giith.heartpath.HeartPathScreen
 import net.maiatoday.giith.navigation.roots.HomeScreen
-import net.maiatoday.giith.links.LinksScreen
 import net.maiatoday.giith.rainbowtext.RainbowTextScreen
-import net.maiatoday.giith.sketch.DoodleSketchScreen
-import net.maiatoday.giith.wallpaper.TilesScreen
+import net.maiatoday.giith.stars.StarsScreen
 import net.maiatoday.giith.ui.GrooveTheme
 import net.maiatoday.giith.ui.ThemeChoice.Comic
 import net.maiatoday.giith.ui.ThemeChoice.Times
 import net.maiatoday.giith.underconstruction.UnderConstructionScreen
 import net.maiatoday.giith.visitorcounter.VisitorCounterScreen
+import net.maiatoday.giith.wallpaper.WallpaperScreen
 
 @Composable
 fun App() {
@@ -66,10 +66,11 @@ fun App() {
                 VisitorCounter -> VisitorCounterScreen()
                 GlitterPointer -> GlitterPointerScreen()
                 UnderConstruction -> UnderConstructionScreen()
-                Tiles -> TilesScreen()
+                Wallpaper -> WallpaperScreen()
                 HeartPath -> HeartPathScreen()
                 GuestBook -> GuestBookScreen()
                 Links -> LinksScreen()
+                Stars -> StarsScreen()
             }
         }
     }

@@ -6,7 +6,7 @@ import androidx.compose.ui.Modifier
 
 
 @Composable
-fun Memphis(modifier: Modifier = Modifier, choices: MemphisChoices) {
+fun Memphis(modifier: Modifier = Modifier, choices: MemphisChoices = MemphisChoices()) {
     Surface(modifier = modifier) {
         AllTheTriangles(fill = choices.triangleFill, spacingDp = choices.spacingTriangle, sizeDp = choices.triangleSize)
         AllTheDonuts(fill = choices.dotFill, spacingDp = choices.spacingDot, sizeDp = choices.dotSize)

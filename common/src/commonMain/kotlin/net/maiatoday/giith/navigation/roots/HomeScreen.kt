@@ -13,6 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import net.maiatoday.giith.gaudydivider.SparkDivider
+import net.maiatoday.giith.memphis.Memphis
 import net.maiatoday.giith.navigation.Screen
 import net.maiatoday.giith.navigation.Screen.Home
 import net.maiatoday.giith.rainbowtext.SnappyRainbowText
@@ -25,7 +26,7 @@ fun HomeScreen(
     switchChildScreen: (screen: Screen) -> Unit = {}
 ) {
     Surface(modifier = Modifier.fillMaxSize()) {
-        if (groovy) Starfield()
+        if (groovy) Memphis()
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             for (s in Screen.values()) {
                 if (s != Home) {
