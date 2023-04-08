@@ -15,6 +15,8 @@ import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.drawscope.withTransform
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.IntSize
 import net.maiatoday.giith.tools.buildPoissonDiscPoints
 import net.maiatoday.giith.tools.randomDegrees
 import net.maiatoday.giith.tools.toPx
@@ -22,11 +24,15 @@ import net.maiatoday.giith.ui.pastelRainbow
 import net.maiatoday.giith.ui.vividRainbow
 
 @Composable
-fun AllTheWaves(modifier: Modifier = Modifier, delta: Float = 80f) {
+fun AllTheWaves(modifier: Modifier = Modifier, spacingDp: Int, waveSizeDp: IntSize) {
+    if (waveSizeDp.width == 0) return
+    if (waveSizeDp.height == 0) return
+    val sizePx = waveSizeDp.toPxOffset()
     BoxWithConstraints(modifier) {
         val w = this.maxWidth.toPx()
         val h = this.maxHeight.toPx()
-        val points by remember { mutableStateOf(buildPoissonDiscPoints(Size(w, h), delta * 3)) }
+        val spacing = Dp(spacingDp.toFloat()).toPx()
+        val points = buildPoissonDiscPoints(Size(w, h), spacing)
         Canvas(modifier = Modifier.fillMaxSize()) {
             for (point in points) {
                 withTransform({
@@ -40,7 +46,7 @@ fun AllTheWaves(modifier: Modifier = Modifier, delta: Float = 80f) {
                         color = pastelRainbow.random(),
                         shadow = vividRainbow.random(),
                         Offset.Zero,
-                        delta
+                        sizePx
                     )
                 }
             }
@@ -48,10 +54,9 @@ fun AllTheWaves(modifier: Modifier = Modifier, delta: Float = 80f) {
     }
 }
 
-fun DrawScope.drawWaveShadow(color: Color, shadow: Color, offset: Offset, delta: Float) {
-    val deltaOffset = Offset(delta, delta*1.2f)
-    drawWave(shadow, Offset(offset.x + 10, offset.y + 10), deltaOffset)
-    drawWave(color, offset, deltaOffset)
+fun DrawScope.drawWaveShadow(color: Color, shadow: Color, offset: Offset, delta: Offset) {
+    drawWave(shadow, Offset(offset.x + 10, offset.y + 10), delta)
+    drawWave(color, offset, delta)
 }
 
 fun DrawScope.drawWave(color: Color, center: Offset, delta: Offset) {
@@ -64,3 +69,6 @@ fun DrawScope.drawWave(color: Color, center: Offset, delta: Offset) {
     zigzag.lineTo(center.x + delta.x + delta.x / 2, center.y - delta.y)
     drawPath(zigzag, color, style = Stroke(width = 10f))
 }
+
+@Composable
+private fun IntSize.toPxOffset():Offset = Offset(Dp(width.toFloat()).toPx(), Dp(height.toFloat()).toPx())

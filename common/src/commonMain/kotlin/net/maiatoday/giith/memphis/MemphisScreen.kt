@@ -31,11 +31,10 @@ fun MemphisScreen() {
             choices = choices,
             version = "Hello ${getPlatformName()}",
         ) { choices = it }
-        Surface(modifier = pageModifier.onSizeChanged {
-        }) {
-            AllTheTriangles(fill = choices.triangleFill, delta = choices.radius.toFloat())
-            AllTheDonuts(fill = choices.dotFill, delta = choices.radius.toFloat())
-            AllTheWaves(delta = choices.radius.toFloat())
+        Surface(modifier = pageModifier.onSizeChanged {}) {
+            AllTheTriangles(fill = choices.triangleFill, spacingDp = choices.spacingTriangle, sizeDp = choices.triangleSize)
+            AllTheDonuts(fill = choices.dotFill, spacingDp = choices.spacingDot, sizeDp = choices.dotSize)
+            AllTheWaves(spacingDp = choices.spacingWave, waveSizeDp = choices.waveSize)
         }
     }
 }
