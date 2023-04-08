@@ -20,7 +20,7 @@ private val dragonGif =
 private val babyGif = "https://web.archive.org/web/20090830200257im_/http://www.geocities.com/sanjhapunjab/babyjatt.gif"
 
 @Composable
-fun AnimatedImageLoader(url:String = babyGif) {
+fun AnimatedImageLoader(url: String = babyGif) {
     Column {
 //        // Load an image async
 //        // use "load { loadResourceAnimatedImage(url) }" for resources
@@ -43,24 +43,22 @@ fun AnimatedImageLoader(url:String = babyGif) {
 
 @Composable
 fun Troll() {
-    if (!isAndroid()) {
-        Image(
-            loadOrNull { loadResourceAnimatedImage("drawable/troll.gif") }?.animate() ?: ImageBitmap.Blank,
-            contentDescription = null,
-            Modifier.size(100.dp)
-        )
-    }
+    //  if (!isAndroid()) {
+    Image(
+        loadOrNull { loadResourceAnimatedImage("drawable/troll.gif") }?.animate() ?: ImageBitmap.Blank,
+        contentDescription = null,
+        Modifier.size(100.dp)
+    )
+    //  }
 }
 
 @Composable
 fun Pony() {
-    if (!isAndroid()) {
-        Image(
-            loadOrNull { loadResourceAnimatedImage("drawable/pony.gif") }?.animate() ?: ImageBitmap.Blank,
-            contentDescription = null,
-            Modifier.size(100.dp)
-        )
-    }
+    Image(
+        loadOrNull { loadResourceAnimatedImage("drawable/pony.gif") }?.animate() ?: ImageBitmap.Blank,
+        contentDescription = null,
+        Modifier.size(100.dp)
+    )
 }
 
 @Composable

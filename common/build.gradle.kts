@@ -14,6 +14,7 @@ kotlin {
                 api(compose.runtime)
                 api(compose.foundation)
                 api(compose.material3)
+//                implementation("androidx.compose.material3:material3-window-size-class:1.0.1")
                 // Needed only for preview.
                 implementation(compose.preview)
                 implementation("org.jetbrains.compose.components:components-animatedimage-desktop:1.3.1")

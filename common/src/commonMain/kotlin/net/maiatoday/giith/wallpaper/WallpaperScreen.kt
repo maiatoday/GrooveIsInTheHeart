@@ -9,11 +9,9 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.unit.dp
-import net.maiatoday.giith.ui.BlueStars
-import net.maiatoday.giith.ui.PinkClouds
-import net.maiatoday.giith.ui.UltraViolet
-import net.maiatoday.giith.ui.grooveColors
+import net.maiatoday.giith.ui.*
 
 enum class WallpaperChoice {
     CrazyQuilt, PinkClouds, BlueStars, UltraViolet
@@ -28,23 +26,23 @@ fun WallpaperScreen() {
             var tt by remember { mutableStateOf(WallpaperChoice.CrazyQuilt) }
             Row(Modifier.fillMaxWidth()) {
                 radioGroupOptions.forEach { choice ->
-                    Row(
+                    Column(
                         modifier = Modifier
                             .selectable(
                                 selected = (choice == tt),
                                 onClick = { tt = choice }
                             )
                             .padding(horizontal = 16.dp),
-                        verticalAlignment = Alignment.CenterVertically
+                        horizontalAlignment = Alignment.CenterHorizontally
                     ) {
-                        RadioButton(
-                            selected = (choice == tt),
-                            onClick = { tt = choice }
-                        )
                         Text(
                             text = choice.toString(),
                             style = MaterialTheme.typography.bodySmall.merge(),
                             modifier = Modifier.padding(start = 16.dp)
+                        )
+                        RadioButton(
+                            selected = (choice == tt),
+                            onClick = { tt = choice }
                         )
                     }
                 }
@@ -56,23 +54,26 @@ fun WallpaperScreen() {
 
 @Composable
 fun Wallpaper(choice: WallpaperChoice) {
+    when (choice) {
+        WallpaperChoice.CrazyQuilt -> CrazyQuilt()
+        WallpaperChoice.PinkClouds -> PinkCloudsBox {}
+        WallpaperChoice.BlueStars -> BlueStarsBox {}
+        WallpaperChoice.UltraViolet -> UltraVioletBox {}
+    }
+
+}
+
+@Composable
+fun CrazyQuilt() {
     LazyVerticalGrid(
         columns = GridCells.Fixed(7),
         modifier = Modifier
             .fillMaxSize()
     ) {
         items(50) { _ ->
-            when (choice) {
-                WallpaperChoice.CrazyQuilt -> Box(
-                    modifier = Modifier.size(100.dp).background(grooveColors.random())
-                )
-
-                WallpaperChoice.PinkClouds -> PinkClouds()
-                WallpaperChoice.BlueStars -> BlueStars()
-                WallpaperChoice.UltraViolet -> UltraViolet()
-                else -> {}
-            }
+            Box(modifier = Modifier.size(100.dp).background(grooveColors.random()))
         }
     }
-
 }
+
+
