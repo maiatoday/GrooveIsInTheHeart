@@ -31,10 +31,6 @@ fun MemphisScreen() {
             choices = choices,
             version = "Hello ${getPlatformName()}",
         ) { choices = it }
-        Surface(modifier = pageModifier.onSizeChanged {}) {
-            AllTheTriangles(fill = choices.triangleFill, spacingDp = choices.spacingTriangle, sizeDp = choices.triangleSize)
-            AllTheDonuts(fill = choices.dotFill, spacingDp = choices.spacingDot, sizeDp = choices.dotSize)
-            AllTheWaves(spacingDp = choices.spacingWave, waveSizeDp = choices.waveSize)
-        }
+        Memphis(modifier = pageModifier, choices = choices)
     }
 }
