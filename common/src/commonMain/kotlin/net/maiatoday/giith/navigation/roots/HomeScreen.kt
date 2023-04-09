@@ -144,7 +144,7 @@ fun GroovyHome(modifier: Modifier = Modifier, switchChildScreen: (screen: Screen
                 VisitorCounterFake()
             }
         }
-        GlitterBox()
+        GlitterBox(rainbow = pastelRainbow)
     }
 }
 
