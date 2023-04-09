@@ -22,6 +22,7 @@ import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.graphics.TileMode
 import androidx.compose.ui.graphics.drawscope.Fill
 import androidx.compose.ui.graphics.drawscope.withTransform
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import net.maiatoday.giith.tools.toPx
@@ -95,7 +96,8 @@ fun Chevron(
     bgColor: Color = Color.Black,
     textColor: Color = Color.Red,
     shadowColor: Color = Color.Black,
-    text: String = "UNDER CONSTRUCTION"
+    text: String = "UNDER CONSTRUCTION",
+    textStyle: TextStyle = MaterialTheme.typography.headlineMedium
 ) {
     val deltaPx = stripWidth.toPx()
     val deltaDoublePx = deltaPx * 2
@@ -127,7 +129,7 @@ fun Chevron(
         }
         Text(
             text = text,
-            style = MaterialTheme.typography.headlineMedium.copy(
+            style = textStyle.copy(
                 shadow = Shadow(
                     color = shadowColor,
                     offset = Offset(4f, 4f),

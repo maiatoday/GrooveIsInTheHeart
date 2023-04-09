@@ -54,7 +54,7 @@ fun Bork(size: Dp = 100.dp) {
 }
 
 @Composable
-fun UltraVioletBox(modifier: Modifier = Modifier, content: @Composable BoxScope.() -> Unit) {
+fun UltraVioletBox(modifier: Modifier = Modifier, content: @Composable BoxScope.() -> Unit = {}) {
     val image: ImageBitmap = imageResource("ultraviolet.jpg")
     val brush = remember(image) { ShaderBrush(ImageShader(image, TileMode.Repeated, TileMode.Repeated)) }
     Box(
