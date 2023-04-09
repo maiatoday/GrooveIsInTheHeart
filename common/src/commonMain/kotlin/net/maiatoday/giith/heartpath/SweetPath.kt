@@ -48,7 +48,7 @@ val heartPath = Path().apply {
 val candyColours = listOf(Color.Red, Color.Magenta, MyPonyHair)
 
 @Composable
-fun CandyHeartPulse() {
+fun CandyHeartPulse(initialValue:Float = 0.5f, targetValue:Float = 2.5f) {
     val candyBrush = remember {
         object : ShaderBrush() {
             override fun createShader(size: Size): Shader {
@@ -63,8 +63,8 @@ fun CandyHeartPulse() {
     }
     val infiniteTransition = rememberInfiniteTransition()
     val heartScale by infiniteTransition.animateFloat(
-        initialValue = 0.5f,
-        targetValue = 2.5f,
+        initialValue = initialValue,
+        targetValue = targetValue,
         animationSpec = infiniteRepeatable(
             animation = tween(1000, easing = FastOutSlowInEasing),
             repeatMode = RepeatMode.Reverse

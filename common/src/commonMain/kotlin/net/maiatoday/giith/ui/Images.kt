@@ -54,6 +54,56 @@ fun Bork(size: Dp = 100.dp) {
 }
 
 @Composable
+fun Inky(size: Dp = 100.dp) {
+    val bork = imageResourcePainter("inky.png")
+    Image(
+        modifier = Modifier.size(size),
+        painter = bork,
+        contentDescription = "Inky"
+    )
+}
+
+@Composable
+fun Pinky(size: Dp = 100.dp) {
+    val bork = imageResourcePainter("pinky.png")
+    Image(
+        modifier = Modifier.size(size),
+        painter = bork,
+        contentDescription = "Pinky"
+    )
+}
+
+@Composable
+fun Blinky(size: Dp = 100.dp) {
+    val bork = imageResourcePainter("blinky.png")
+    Image(
+        modifier = Modifier.size(size),
+        painter = bork,
+        contentDescription = "Blinky"
+    )
+}
+
+@Composable
+fun Ghost(modifier:Modifier = Modifier, size: Dp = 100.dp) {
+    val bork = imageResourcePainter("ghost.png")
+    Image(
+        modifier = modifier.size(size),
+        painter = bork,
+        contentDescription = "Ghost"
+    )
+}
+
+@Composable
+fun Clyde(size: Dp = 100.dp) {
+    val bork = imageResourcePainter("clyde.png")
+    Image(
+        modifier = Modifier.size(size),
+        painter = bork,
+        contentDescription = "Clyde"
+    )
+}
+
+@Composable
 fun UltraVioletBox(modifier: Modifier = Modifier, content: @Composable BoxScope.() -> Unit = {}) {
     val image: ImageBitmap = imageResource("ultraviolet.jpg")
     val brush = remember(image) { ShaderBrush(ImageShader(image, TileMode.Repeated, TileMode.Repeated)) }

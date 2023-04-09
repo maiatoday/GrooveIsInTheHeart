@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.style.TextDecoration
 
 @ExperimentalAnimationApi
 @Composable
@@ -43,9 +44,10 @@ fun BlinkText(
     color: Color = Color.Unspecified,
     style: TextStyle = LocalTextStyle.current,
     durationMillis: Int = 1000,
+    textDecoration:TextDecoration = TextDecoration.None
 ) {
     BlinkTag(modifier = modifier, duration = durationMillis) {
-        Text(modifier = it, text = text, style = style, color = color)
+        Text(modifier = it, text = text, style = style, color = color, textDecoration = textDecoration)
     }
 }
 

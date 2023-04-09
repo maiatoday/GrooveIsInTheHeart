@@ -1,14 +1,13 @@
 package net.maiatoday.giith.blink
 
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -17,6 +16,7 @@ import net.maiatoday.giith.ui.*
 @OptIn(ExperimentalAnimationApi::class, ExperimentalMaterial3Api::class)
 @Composable
 fun BlinkScreen() {
+    var show by remember { mutableStateOf(false) }
     Surface(modifier = Modifier.fillMaxSize()) {
         var text by rememberSaveable { mutableStateOf("<blink>") }
         Column(
@@ -25,6 +25,7 @@ fun BlinkScreen() {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             val spacer = Modifier.height(16.dp)
+            Ghost(modifier = Modifier.clickable { show = !show})
             Text(
                 "<blink>",
                 modifier = Modifier.padding(8.dp)
@@ -51,97 +52,49 @@ fun BlinkScreen() {
                 durationMillis = 2000
             )
             Spacer(modifier = spacer)
-//            LocalContentBlinkTag {
-//                Column {
-//                    Row {
-//                        Icon(
-//                            painter = painterResource(id = R.drawable.ic_android_black_24dp),
-//                            contentDescription = null // decorative element
-//                        )
-//                        Text(text = "blinky")
-//                    }
-//                    Row {
-//                        Text(text = "pinky")
-//                        Icon(
-//                            painter = painterResource(id = R.drawable.ic_android_black_24dp),
-//                            contentDescription = null // decorative element
-//                        )
-//                    }
-//                    Row {
-//                        Text(text = "inky")
-//                        Icon(
-//                            painter = painterResource(id = R.drawable.ic_android_black_24dp),
-//                            contentDescription = null // decorative element
-//                        )
-//                    }
-//
-//                    Row {
-//                        Icon(
-//                            painter = painterResource(id = R.drawable.ic_android_black_24dp),
-//                            contentDescription = null // decorative element
-//                        )
-//                        Text(text = "clyde")
-//                    }
-//                }
-//            }
+
             Spacer(modifier = spacer)
-//            BlinkTag {
-//                Column {
-//                    Row {
-//                        Icon(
-//                            tint = Lollipop,
-//                            painter = painterResource(id = R.drawable.ic_android_black_24dp),
-//                            contentDescription = null // decorative element
-//                        )
-//                        Text(
-//                            text = "blinky",
-//                            color = Lollipop,
-//                            modifier = it
-//                                .padding(8.dp)
-//                        )
-//                    }
-//                    Row {
-//                        Text(
-//                            text = "pinky",
-//                            color = MyPonyHair,
-//                            modifier = it
-//                                .padding(8.dp)
-//                        )
-//                        Icon(
-//                            tint = MyPonyHair,
-//                            painter = painterResource(id = R.drawable.ic_android_black_24dp),
-//                            contentDescription = null // decorative element
-//                        )
-//                    }
-//                    Row {
-//                        Text(
-//                            text = "inky",
-//                            color = SummerSky,
-//                            modifier = it
-//                                .padding(8.dp)
-//                        )
-//                        Icon(
-//                            tint = SummerSky,
-//                            painter = painterResource(id = R.drawable.ic_android_black_24dp),
-//                            contentDescription = null // decorative element
-//                        )
-//                    }
-//
-//                    Row {
-//                        Icon(
-//                            tint = TrollHair,
-//                            painter = painterResource(id = R.drawable.ic_android_black_24dp),
-//                            contentDescription = null // decorative element
-//                        )
-//                        Text(
-//                            text = "clyde",
-//                            color = TrollHair,
-//                            modifier = it
-//                                .padding(8.dp)
-//                        )
-//                    }
-//                }
-//            }
+            AnimatedVisibility(visible = show) {
+                Row {
+                    Row {
+                        Blinky(60.dp)
+                        Text(
+                            text = "Blinky",
+                            color = Lollipop,
+                            modifier = Modifier
+                                .padding(8.dp)
+                        )
+                    }
+                    Row {
+                        Pinky(60.dp)
+                        Text(
+                            text = "Pinky",
+                            color = MyPonyHair,
+                            modifier = Modifier
+                                .padding(8.dp)
+                        )
+                    }
+                    Row {
+                        Inky(60.dp)
+                        Text(
+                            text = "Inky",
+                            color = SummerSky,
+                            modifier = Modifier
+                                .padding(8.dp)
+                        )
+                    }
+
+                    Row {
+                        Clyde(60.dp)
+                        Text(
+                            text = "Clyde",
+                            color = TrollHair,
+                            modifier = Modifier
+                                .padding(8.dp)
+                        )
+                    }
+                }
+            }
         }
     }
 }

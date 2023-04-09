@@ -2,11 +2,11 @@ package net.maiatoday.giith.navigation.roots
 
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.selection.selectable
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -15,23 +15,21 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
-import net.maiatoday.giith.gaudydivider.MoarSparkDivider
-import net.maiatoday.giith.gaudydivider.RainbowSparkDivider
+import net.maiatoday.giith.blink.BlinkText
 import net.maiatoday.giith.gaudydivider.ShimmerDivider
-import net.maiatoday.giith.gaudydivider.SparkDivider
+import net.maiatoday.giith.glitter.GlitterBox
 import net.maiatoday.giith.heartpath.CandyHeartPulse
-import net.maiatoday.giith.memphis.Memphis
 import net.maiatoday.giith.navigation.Screen
-import net.maiatoday.giith.navigation.Screen.Home
+import net.maiatoday.giith.navigation.Screen.*
 import net.maiatoday.giith.rainbowtext.GradientTextShimmer
+import net.maiatoday.giith.rainbowtext.MultiColorSmoothText
 import net.maiatoday.giith.rainbowtext.SnappyRainbowText
-import net.maiatoday.giith.ui.BlueyBlack
-import net.maiatoday.giith.ui.UltraVioletBox
+import net.maiatoday.giith.ui.*
 import net.maiatoday.giith.ui.components.Baby
 import net.maiatoday.giith.ui.components.ConstructionWorker
 import net.maiatoday.giith.ui.components.Pony
-import net.maiatoday.giith.ui.vividRainbow
 import net.maiatoday.giith.underconstruction.Chevron
 import net.maiatoday.giith.visitorcounter.Counter
 
@@ -49,7 +47,7 @@ fun SimpleHome(modifier: Modifier = Modifier, switchChildScreen: (screen: Screen
     Surface(modifier = Modifier.fillMaxSize()) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             for (s in Screen.values()) {
-                if (s != Home) {
+                if (s !in listOf(Home, GuestBook, MyBookmarks)) {
                     Button(onClick = { switchChildScreen(s) }) {
                         Text(s.toString())
                     }
@@ -62,9 +60,7 @@ fun SimpleHome(modifier: Modifier = Modifier, switchChildScreen: (screen: Screen
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun GroovyHome(modifier: Modifier = Modifier, switchChildScreen: (screen: Screen) -> Unit = {}) {
-    var count by remember { mutableStateOf(12910) }
     Surface(modifier = modifier.fillMaxSize()) {
-        //Memphis()
         UltraVioletBox()
         Box(
             modifier = Modifier
@@ -83,7 +79,7 @@ fun GroovyHome(modifier: Modifier = Modifier, switchChildScreen: (screen: Screen
                     Pony()
                     Baby()
                     GradientTextShimmer(
-                        text = "Welcome to my corner on the internet",
+                        text = "Welcome to my corner of the internet",
                         style = MaterialTheme.typography.headlineMedium,
                         colors = vividRainbow
                     )
@@ -102,8 +98,11 @@ fun GroovyHome(modifier: Modifier = Modifier, switchChildScreen: (screen: Screen
                             item {
                                 Text(
                                     modifier = Modifier
-                                        .clickable { switchChildScreen(s) },
-                                    text = s.toString()
+                                        .border(width = 2.dp, color = MyPonyHair)
+                                        .clickable { switchChildScreen(s) }
+                                        .padding(8.dp),
+                                    text = s.toString(),
+                                    textDecoration = TextDecoration.Underline
                                 )
                             }
                         }
@@ -115,11 +114,56 @@ fun GroovyHome(modifier: Modifier = Modifier, switchChildScreen: (screen: Screen
                         .fillMaxWidth()
                         .height(60.dp)
                 )
-                SnappyRainbowText(text = "Stay Groovy")
-                ConstructionWorker()
-                Counter(count = count, width = 8, onClick = { count++ })
-                CandyHeartPulse()
+                Row(modifier = Modifier
+                    .fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    BlinkText(
+                        text = "Sign the Guest Book",
+                        color = Lime,
+                        modifier = Modifier
+                            .clickable { switchChildScreen(Screen.GuestBook) }
+                            .padding(8.dp),
+                        style = MaterialTheme.typography.headlineMedium,
+                        durationMillis = 2000,
+                        textDecoration = TextDecoration.Underline
+                    )
+                    ConstructionWorker()
+                    BlinkText(
+                        text = "My Bookmarks",
+                        color = SummerSky,
+                        modifier = Modifier
+                            .clickable { switchChildScreen(Screen.MyBookmarks) }
+                            .padding(8.dp),
+                        style = MaterialTheme.typography.headlineMedium,
+                        durationMillis = 2000,
+                        textDecoration = TextDecoration.Underline
+                    )
+                }
+                VisitorCounterFake()
             }
+        }
+        GlitterBox()
+    }
+}
+
+@OptIn(ExperimentalAnimationApi::class)
+@Composable
+fun VisitorCounterFake() {
+    var count by remember { mutableStateOf(12910) }
+    Row(modifier = Modifier
+        .wrapContentSize()
+        .clickable { count++ }
+        .border(width = 2.dp, color = Lint)
+        .padding(8.dp)) {
+        Column {
+            MultiColorSmoothText(text = "Visitors", duration = 1000)
+            Counter(count = count, width = 8, onClick = {})
+            SnappyRainbowText(text = "Stay Groovy")
+        }
+        Box(modifier = Modifier.size(65.dp)) {
+            CandyHeartPulse(initialValue = 0.2f, targetValue = 0.8f)
         }
     }
 }
