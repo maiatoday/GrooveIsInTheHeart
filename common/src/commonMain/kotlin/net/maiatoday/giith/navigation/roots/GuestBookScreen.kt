@@ -8,10 +8,11 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import net.maiatoday.giith.gaudydivider.LintDivider
+import net.maiatoday.giith.gaudydivider.SherbetBombDivider
 import net.maiatoday.giith.ui.TasteyWheat
 import net.maiatoday.giith.ui.UltraVioletBox
 import net.maiatoday.giith.ui.components.Cube
-import net.maiatoday.giith.ui.components.SherbetBombDivider
 
 @Composable
 fun GuestBookScreen() {
@@ -104,7 +105,7 @@ fun GuestBookEntries(modifier: Modifier = Modifier, entries: List<GuestBookEntry
                     text = entry.comment,
                     style = MaterialTheme.typography.bodySmall
                 )
-
+                LintDivider()
             }
         }
     }

@@ -5,6 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
@@ -12,6 +13,8 @@ import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.ImageShader
 import androidx.compose.ui.graphics.ShaderBrush
 import androidx.compose.ui.graphics.TileMode
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 
 @Composable
 fun PinkClouds() {
@@ -37,6 +40,16 @@ fun UltraViolet() {
     Image(
         painter = ultraViolet,
         contentDescription = "ultra Violet"
+    )
+}
+
+@Composable
+fun Bork(size: Dp = 100.dp) {
+    val bork = imageResourcePainter("bork.png")
+    Image(
+        modifier = Modifier.size(size),
+        painter = bork,
+        contentDescription = "Broken File"
     )
 }
 

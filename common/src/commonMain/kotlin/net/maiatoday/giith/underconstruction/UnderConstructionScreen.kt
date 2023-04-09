@@ -7,7 +7,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import net.maiatoday.giith.ui.components.Baby
 import net.maiatoday.giith.ui.components.ConstructionWorker
 import net.maiatoday.giith.ui.components.Flame
 import net.maiatoday.magicsprinkles.ui.component.UnderConstructionMarquee
@@ -22,7 +21,7 @@ fun UnderConstructionScreen() {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             UnderConstructionMarquee()
-            Chevron(
+            ChevronHeavy(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(60.dp)
@@ -42,7 +41,6 @@ fun UnderConstructionScreen() {
                     .fillMaxWidth()
                     .height(60.dp)
             )
-            UnderConstructionMarquee()
         }
     }
 }

@@ -72,6 +72,16 @@ fun MultiColorSmoothText(
     startIndex: Int = 0,
     duration: Int
 ) {
+    val color = rainbowAnimatedColor(duration, rainbow, startIndex)
+    Text(text = text, color = color, style = style, modifier = modifier)
+}
+
+@Composable
+fun rainbowAnimatedColor(
+    duration: Int,
+    rainbow: List<Color>,
+    startIndex: Int = 0
+): Color {
     val infiniteTransition = rememberInfiniteTransition()
     val interval = duration / rainbow.size
     val color by infiniteTransition.animateColor(
@@ -90,5 +100,5 @@ fun MultiColorSmoothText(
             repeatMode = RepeatMode.Restart
         )
     )
-    Text(text = text, color = color, style = style, modifier = modifier)
+    return color
 }

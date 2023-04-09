@@ -2,6 +2,7 @@ package net.maiatoday.giith.rainbowtext
 
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -53,7 +54,6 @@ fun RainbowTextScreen() {
                 style = MaterialTheme.typography.headlineSmall,
                 startColor = Color.Magenta,
                 endColor = Color.Cyan,
-
                 )
             Spacer(modifier = spacer)
             MultiColorSmoothText(
@@ -63,26 +63,38 @@ fun RainbowTextScreen() {
                 duration = 1200
             )
             Spacer(modifier = spacer)
-            SmoothRainbowText(
-                text = text,
-                modifier = Modifier.padding(8.dp),
-                style = MaterialTheme.typography.headlineMedium,
-                duration = 400
-            )
+//            SmoothRainbowText(
+//                text = text,
+//                modifier = Modifier.padding(8.dp),
+//                style = MaterialTheme.typography.headlineMedium,
+//                duration = 400
+//            )
+//            Spacer(modifier = spacer)
+//            SmoothRainbowText(
+//                text = text,
+//                modifier = Modifier.padding(8.dp),
+//                style = MaterialTheme.typography.headlineMedium,
+//                duration = 1200
+//            )
+//            Spacer(modifier = spacer)
+//            SmoothRainbowText(
+//                text = text,
+//                modifier = Modifier.padding(8.dp),
+//                style = MaterialTheme.typography.headlineMedium,
+//                duration = 6400
+//            )
+//            Spacer(modifier = spacer)
+            RainbowGradientText(text)
             Spacer(modifier = spacer)
-            SmoothRainbowText(
-                text = text,
-                modifier = Modifier.padding(8.dp),
-                style = MaterialTheme.typography.headlineMedium,
-                duration = 1200
-            )
+            GradientText(text)
             Spacer(modifier = spacer)
-            SmoothRainbowText(
+            AnotherGradientText(text)
+            Spacer(modifier = spacer)
+            GradientTextShimmer(
                 text = text,
                 modifier = Modifier.padding(8.dp),
-                style = MaterialTheme.typography.headlineMedium,
-                duration = 6400
-            )
+                style = MaterialTheme.typography.headlineMedium)
+
         }
     }
 }

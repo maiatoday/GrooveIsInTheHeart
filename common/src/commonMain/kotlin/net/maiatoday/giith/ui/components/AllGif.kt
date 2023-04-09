@@ -8,6 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.unit.dp
 import isAndroid
+import net.maiatoday.giith.ui.imageResourcePainter
 import org.jetbrains.compose.animatedimage.Blank
 import org.jetbrains.compose.animatedimage.animate
 import org.jetbrains.compose.animatedimage.loadAnimatedImage
@@ -42,66 +43,41 @@ fun AnimatedImageLoader(url: String = babyGif) {
 }
 
 @Composable
-fun Troll() {
-    //  if (!isAndroid()) {
-    Image(
-        loadOrNull { loadResourceAnimatedImage("drawable/troll.gif") }?.animate() ?: ImageBitmap.Blank,
-        contentDescription = null,
-        Modifier.size(100.dp)
-    )
-    //  }
-}
+fun Troll() = GifWrap("drawable/troll.gif")
 
 @Composable
-fun Pony() {
-    Image(
-        loadOrNull { loadResourceAnimatedImage("drawable/pony.gif") }?.animate() ?: ImageBitmap.Blank,
-        contentDescription = null,
-        Modifier.size(100.dp)
-    )
-}
+fun Pony() = GifWrap("drawable/pony.gif")
 
 @Composable
-fun ConstructionWorker() {
+fun ConstructionWorker() = GifWrap("drawable/construction.gif")
 
-    if (!isAndroid()) {
+@Composable
+fun Flame() = GifWrap("drawable/flame4.gif")
+
+@Composable
+fun Baby() = GifWrap("drawable/baby.gif")
+
+@Composable
+fun Cube() = GifWrap("drawable/cube.gif")
+
+@Composable
+fun Hot() = GifWrap("drawable/hot.gif")
+
+@Composable
+fun GifWrap(gifResource: String) {
+    if (isAndroid()) {
+        val brokenFile = imageResourcePainter("bork.png")
         Image(
-            loadOrNull { loadResourceAnimatedImage("drawable/construction.gif") }?.animate() ?: ImageBitmap.Blank,
+            modifier = Modifier.size(100.dp),
+            painter = brokenFile,
+            contentDescription = "Broken file"
+        )
+    } else {
+        Image(
+            loadOrNull { loadResourceAnimatedImage(gifResource) }?.animate() ?: ImageBitmap.Blank,
             contentDescription = null,
             Modifier.size(100.dp)
         )
     }
-}
 
-@Composable
-fun Flame() {
-    if (!isAndroid()) {
-        Image(
-            loadOrNull { loadResourceAnimatedImage("drawable/flame4.gif") }?.animate() ?: ImageBitmap.Blank,
-            contentDescription = null,
-            Modifier.size(100.dp)
-        )
-    }
-}
-
-@Composable
-fun Baby() {
-    if (!isAndroid()) {
-        Image(
-            loadOrNull { loadResourceAnimatedImage("drawable/baby.gif") }?.animate() ?: ImageBitmap.Blank,
-            contentDescription = null,
-            Modifier.size(100.dp)
-        )
-    }
-}
-
-@Composable
-fun Cube() {
-    if (!isAndroid()) {
-        Image(
-            loadOrNull { loadResourceAnimatedImage("drawable/cube.gif") }?.animate() ?: ImageBitmap.Blank,
-            contentDescription = null,
-            Modifier.size(100.dp)
-        )
-    }
 }
