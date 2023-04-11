@@ -21,7 +21,7 @@ fun RandomField(modifier: Modifier = Modifier, background: Color = BlueyBlack, s
     BoxWithConstraints(modifier) {
         val w = this.maxWidth.toPx().toInt()
         val h =  this.maxHeight.toPx().toInt()
-        val stars by remember { mutableStateOf(buildPoints(IntSize(w,h), 1000)) }
+        val stars by remember { mutableStateOf(buildPoints(IntSize(w,h), 3000)) }
         Box(
             modifier = modifier
                 .background(background)

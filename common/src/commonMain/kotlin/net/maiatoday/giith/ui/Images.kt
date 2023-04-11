@@ -114,6 +114,16 @@ fun ComposeLogo(size: Dp = 100.dp) {
 }
 
 @Composable
+fun TheAiHelpedMe(size: Dp = 100.dp) {
+    val bork = imageResourcePainter("aihelp.png")
+    Image(
+        modifier = Modifier.size(size),
+        painter = bork,
+        contentDescription = "chatgpt"
+    )
+}
+
+@Composable
 fun UltraVioletBox(modifier: Modifier = Modifier, content: @Composable BoxScope.() -> Unit = {}) {
     val image: ImageBitmap = imageResource("ultraviolet.jpg")
     val brush = remember(image) { ShaderBrush(ImageShader(image, TileMode.Repeated, TileMode.Repeated)) }

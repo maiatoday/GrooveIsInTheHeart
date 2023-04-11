@@ -15,6 +15,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import net.maiatoday.giith.blink.BlinkText
@@ -63,12 +64,7 @@ fun GroovyHome(modifier: Modifier = Modifier, switchChildScreen: (screen: Screen
         Box(
             modifier = Modifier
                 .padding(64.dp)
-                .alpha(0.7f)
-                .background(color = BlueyBlack)
-        )
-        Box(
-            modifier = Modifier
-                .padding(64.dp)
+                .background(brush = SolidColor(BlueyBlack), alpha = 0.7f)
         ) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally
@@ -195,7 +191,7 @@ fun VisitorCounterFake() {
         .padding(8.dp)) {
         Column {
             MultiColorSmoothText(text = "Visitors", duration = 1000)
-            Counter(count = count, width = 8, onClick = {})
+            Counter(count = count, width = 8, onClick = { count++ })
             SnappyRainbowText(text = "Stay Groovy")
         }
         Box(modifier = Modifier.size(65.dp)) {

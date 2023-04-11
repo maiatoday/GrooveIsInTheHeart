@@ -9,6 +9,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import net.maiatoday.giith.gaudydivider.LintDivider
 import net.maiatoday.giith.gaudydivider.SherbetBombDivider
@@ -23,8 +24,11 @@ import net.maiatoday.giith.ui.components.Cube
 fun GuestBookScreen() {
     Surface {
         Memphis(choices = MemphisChoices())
-        Box(modifier = Modifier.padding(48.dp).alpha(0.8f).background(BlueyBlack).fillMaxSize())
-        Box(modifier = Modifier.padding(48.dp).fillMaxSize()) {
+        Box(
+            modifier = Modifier.padding(48.dp)
+                .background(brush = SolidColor(BlueyBlack), alpha = 0.7f)
+                .fillMaxSize()
+        ) {
             Column {
                 var guestBook by remember { mutableStateOf(sampleGuestBook) }
                 GuestBook(modifier = Modifier.wrapContentHeight().fillMaxWidth()) {

@@ -46,21 +46,20 @@ val heartPath = Path().apply {
 
 //region Candy Heart
 val candyColours = listOf(Color.Red, Color.Magenta, MyPonyHair)
+val candyShader =  object : ShaderBrush() {
+    override fun createShader(size: Size): Shader {
+        return LinearGradientShader(
+            colors = candyColours,
+            from = Offset.Zero,
+            to = Offset(heartSize.width / 4f, 0f),
+            tileMode = TileMode.Mirror
+        )
+    }
+}
 
 @Composable
 fun CandyHeartPulse(initialValue:Float = 0.5f, targetValue:Float = 2.5f) {
-    val candyBrush = remember {
-        object : ShaderBrush() {
-            override fun createShader(size: Size): Shader {
-                return LinearGradientShader(
-                    colors = candyColours,
-                    from = Offset.Zero,
-                    to = Offset(heartSize.width / 4f, 0f),
-                    tileMode = TileMode.Mirror
-                )
-            }
-        }
-    }
+    val candyBrush = remember { candyShader }
     val infiniteTransition = rememberInfiniteTransition()
     val heartScale by infiniteTransition.animateFloat(
         initialValue = initialValue,
