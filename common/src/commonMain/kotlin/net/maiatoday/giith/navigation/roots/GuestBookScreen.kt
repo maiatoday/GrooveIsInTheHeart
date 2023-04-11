@@ -7,17 +7,24 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import net.maiatoday.giith.gaudydivider.LintDivider
 import net.maiatoday.giith.gaudydivider.SherbetBombDivider
+import net.maiatoday.giith.memphis.Memphis
+import net.maiatoday.giith.memphis.MemphisChoices
+import net.maiatoday.giith.ui.BlueyBlack
 import net.maiatoday.giith.ui.TasteyWheat
 import net.maiatoday.giith.ui.UltraVioletBox
 import net.maiatoday.giith.ui.components.Cube
 
 @Composable
 fun GuestBookScreen() {
-    UltraVioletBox {
-        Box(modifier = Modifier.padding(48.dp).background(TasteyWheat).fillMaxSize()) {
+    Surface {
+        Memphis(choices = MemphisChoices())
+        Box(modifier = Modifier.padding(48.dp).alpha(0.8f).background(BlueyBlack).fillMaxSize())
+        Box(modifier = Modifier.padding(48.dp).fillMaxSize()) {
             Column {
                 var guestBook by remember { mutableStateOf(sampleGuestBook) }
                 GuestBook(modifier = Modifier.wrapContentHeight().fillMaxWidth()) {

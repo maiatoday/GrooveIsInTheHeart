@@ -104,6 +104,16 @@ fun Clyde(size: Dp = 100.dp) {
 }
 
 @Composable
+fun ComposeLogo(size: Dp = 100.dp) {
+    val bork = imageResourcePainter("compose.png")
+    Image(
+        modifier = Modifier.size(size),
+        painter = bork,
+        contentDescription = "Compose"
+    )
+}
+
+@Composable
 fun UltraVioletBox(modifier: Modifier = Modifier, content: @Composable BoxScope.() -> Unit = {}) {
     val image: ImageBitmap = imageResource("ultraviolet.jpg")
     val brush = remember(image) { ShaderBrush(ImageShader(image, TileMode.Repeated, TileMode.Repeated)) }

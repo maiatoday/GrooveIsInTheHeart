@@ -10,8 +10,8 @@ enum class Screen {
     RainbowText,
     VisitorCounter,
     GlitterPointer,
-    UnderConstruction,
     HeartPath,
+    UnderConstruction,
     GuestBook,
     MyBookmarks,
 }

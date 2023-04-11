@@ -27,9 +27,7 @@ import net.maiatoday.giith.rainbowtext.GradientTextShimmer
 import net.maiatoday.giith.rainbowtext.MultiColorSmoothText
 import net.maiatoday.giith.rainbowtext.SnappyRainbowText
 import net.maiatoday.giith.ui.*
-import net.maiatoday.giith.ui.components.Baby
-import net.maiatoday.giith.ui.components.ConstructionWorker
-import net.maiatoday.giith.ui.components.Pony
+import net.maiatoday.giith.ui.components.*
 import net.maiatoday.giith.underconstruction.Chevron
 import net.maiatoday.giith.visitorcounter.Counter
 
@@ -79,7 +77,7 @@ fun GroovyHome(modifier: Modifier = Modifier, switchChildScreen: (screen: Screen
                     Pony()
                     Baby()
                     GradientTextShimmer(
-                        text = "Welcome to my corner of the internet",
+                        text = "Welcome to my corner of the Internet",
                         style = MaterialTheme.typography.headlineMedium,
                         colors = vividRainbow
                     )
@@ -96,14 +94,20 @@ fun GroovyHome(modifier: Modifier = Modifier, switchChildScreen: (screen: Screen
                     for (s in Screen.values()) {
                         if (s != Home) {
                             item {
-                                Text(
-                                    modifier = Modifier
+                                Row(
+                                    Modifier
                                         .border(width = 2.dp, color = MyPonyHair)
                                         .clickable { switchChildScreen(s) }
-                                        .padding(8.dp),
-                                    text = s.toString(),
-                                    textDecoration = TextDecoration.Underline
-                                )
+                                        .padding(8.dp)
+                                ) {
+                                    GifForScreen(s)
+                                    Text(
+                                        modifier = Modifier
+                                            .padding(8.dp),
+                                        text = s.toString(),
+                                        textDecoration = TextDecoration.Underline
+                                    )
+                                }
                             }
                         }
                     }
@@ -114,11 +118,13 @@ fun GroovyHome(modifier: Modifier = Modifier, switchChildScreen: (screen: Screen
                         .fillMaxWidth()
                         .height(60.dp)
                 )
-                Row(modifier = Modifier
-                    .fillMaxWidth(),
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
+                    GuestBook()
                     BlinkText(
                         text = "Sign the Guest Book",
                         color = Lime,
@@ -140,12 +146,42 @@ fun GroovyHome(modifier: Modifier = Modifier, switchChildScreen: (screen: Screen
                         durationMillis = 2000,
                         textDecoration = TextDecoration.Underline
                     )
+                    Link2()
                 }
-                VisitorCounterFake()
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    NetscapeLogo()
+                    VisitorCounterFake()
+                    ComposeLogo()
+                }
             }
         }
         GlitterBox(rainbow = pastelRainbow)
     }
+}
+
+@Composable
+fun GifForScreen(screen: Screen) {
+    when (screen) {
+        Home -> {}
+        ColorSwatches -> Troll(size = 48.dp, showError = false)
+        Wallpaper -> Hot()
+        Memphis -> Pyramid()
+        Stars -> StarSpin()
+        Blink -> FlashingGhost()
+        RainbowText -> Rainbow()
+        VisitorCounter -> Number0()
+        GlitterPointer -> Wand()
+        HeartPath -> DancerGirlRainbow()
+        UnderConstruction -> Flame(size = 48.dp)
+        GuestBook -> GuestBook(size = 48.dp)
+        MyBookmarks -> Link2()
+    }
+
 }
 
 @OptIn(ExperimentalAnimationApi::class)
