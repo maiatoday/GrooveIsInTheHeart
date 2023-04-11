@@ -37,11 +37,6 @@ fun BlinkScreen() {
                 },
                 label = { Text("Blink message") }
             )
-//            ThemedBlinkText(
-//                text = text,
-//                modifier = Modifier.padding(8.dp),
-//                style = MaterialTheme.typography.headlineLarge
-//            )
             Spacer(modifier = spacer)
             BlinkText(
                 text = text,
