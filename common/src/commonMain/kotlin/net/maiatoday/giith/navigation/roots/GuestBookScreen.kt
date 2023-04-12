@@ -7,8 +7,6 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import net.maiatoday.giith.gaudydivider.LintDivider
@@ -16,8 +14,6 @@ import net.maiatoday.giith.gaudydivider.SherbetBombDivider
 import net.maiatoday.giith.memphis.Memphis
 import net.maiatoday.giith.memphis.MemphisChoices
 import net.maiatoday.giith.ui.BlueyBlack
-import net.maiatoday.giith.ui.TasteyWheat
-import net.maiatoday.giith.ui.UltraVioletBox
 import net.maiatoday.giith.ui.components.Cube
 
 @Composable

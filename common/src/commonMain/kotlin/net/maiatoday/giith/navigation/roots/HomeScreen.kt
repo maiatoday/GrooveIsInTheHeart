@@ -14,7 +14,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
@@ -31,6 +30,7 @@ import net.maiatoday.giith.ui.*
 import net.maiatoday.giith.ui.components.*
 import net.maiatoday.giith.underconstruction.Chevron
 import net.maiatoday.giith.visitorcounter.Counter
+import net.maiatoday.magicsprinkles.ui.component.UnderConstructionMarquee
 
 @Composable
 fun HomeScreen(
@@ -75,7 +75,7 @@ fun GroovyHome(modifier: Modifier = Modifier, switchChildScreen: (screen: Screen
                     GradientTextShimmer(
                         text = "Welcome to my corner of the Internet",
                         style = MaterialTheme.typography.headlineMedium,
-                        colors = vividRainbow
+                        colors = pastelRainbow
                     )
                     Baby()
                     Pony()
@@ -114,6 +114,7 @@ fun GroovyHome(modifier: Modifier = Modifier, switchChildScreen: (screen: Screen
                         .fillMaxWidth()
                         .height(60.dp)
                 )
+                UnderConstructionMarquee()
                 Row(
                     modifier = Modifier
                         .fillMaxWidth(),

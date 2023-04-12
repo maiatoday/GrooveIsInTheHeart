@@ -2,7 +2,6 @@ package net.maiatoday.giith.rainbowtext
 
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -63,27 +62,6 @@ fun RainbowTextScreen() {
                 duration = 1200
             )
             Spacer(modifier = spacer)
-//            SmoothRainbowText(
-//                text = text,
-//                modifier = Modifier.padding(8.dp),
-//                style = MaterialTheme.typography.headlineMedium,
-//                duration = 400
-//            )
-//            Spacer(modifier = spacer)
-//            SmoothRainbowText(
-//                text = text,
-//                modifier = Modifier.padding(8.dp),
-//                style = MaterialTheme.typography.headlineMedium,
-//                duration = 1200
-//            )
-//            Spacer(modifier = spacer)
-//            SmoothRainbowText(
-//                text = text,
-//                modifier = Modifier.padding(8.dp),
-//                style = MaterialTheme.typography.headlineMedium,
-//                duration = 6400
-//            )
-//            Spacer(modifier = spacer)
             RainbowGradientText(text)
             Spacer(modifier = spacer)
             GradientText(text)

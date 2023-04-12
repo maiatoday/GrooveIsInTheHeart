@@ -14,16 +14,15 @@ kotlin {
                 api(compose.runtime)
                 api(compose.foundation)
                 api(compose.material3)
-//                implementation("androidx.compose.material3:material3-window-size-class:1.0.1")
                 // Needed only for preview.
                 implementation(compose.preview)
-                implementation("org.jetbrains.compose.components:components-animatedimage-desktop:1.3.1")
+                implementation("org.jetbrains.compose.components:components-animatedimage-desktop:1.4.0")
             }
         }
         named("androidMain") {
             dependencies {
-                api("androidx.appcompat:appcompat:1.5.1")
-                api("androidx.core:core-ktx:1.8.0")
+                api("androidx.appcompat:appcompat:1.6.1")
+                api("androidx.core:core-ktx:1.10.0")
             }
         }
     }

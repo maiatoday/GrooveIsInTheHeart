@@ -10,6 +10,7 @@ import androidx.compose.ui.unit.dp
 import net.maiatoday.giith.ui.components.ConstructionWorker
 import net.maiatoday.giith.ui.components.Flame
 import net.maiatoday.magicsprinkles.ui.component.UnderConstructionMarquee
+import net.maiatoday.magicsprinkles.ui.component.UnderConstructionMarqueeManual
 
 @Composable
 fun UnderConstructionScreen() {
@@ -20,13 +21,12 @@ fun UnderConstructionScreen() {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            UnderConstructionMarquee()
+            UnderConstructionMarqueeManual()
             ChevronHeavy(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(60.dp)
             )
-            UnderConstructionMarquee()
             Spacer(modifier = Modifier.height(16.dp))
             Row {
                 Flame()

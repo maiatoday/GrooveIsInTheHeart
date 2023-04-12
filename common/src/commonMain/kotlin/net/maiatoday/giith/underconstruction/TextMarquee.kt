@@ -1,10 +1,10 @@
 package net.maiatoday.magicsprinkles.ui.component
 
 import androidx.compose.animation.core.*
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.basicMarquee
+import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -17,7 +17,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun TextMarquee(
+fun TextMarqueeManual(
     text: String,
     modifier: Modifier = Modifier,
     textColour: Color = Color.Yellow,
@@ -46,12 +46,21 @@ fun TextMarquee(
 }
 
 @Composable
-fun UnderConstructionMarquee() {
-    TextMarquee(
+fun UnderConstructionMarqueeManual() {
+    TextMarqueeManual(
         text = "/ / / / / / / / / / / / / /  UNDER CONSTRUCTION / / / / / / / / / / / /",
         modifier = Modifier
             .fillMaxWidth()
             .background(Color.Black)
     )
+}
 
+@OptIn(ExperimentalFoundationApi::class)
+@Composable
+fun UnderConstructionMarquee(
+    text: String = "/ / / / / / / / / / / / / /  UNDER CONSTRUCTION / / / / / / / / / / / /",
+) {
+    Column(Modifier.width(300.dp)) {
+        Text(text, Modifier.basicMarquee().background(Color.Black), color = Color.Yellow)
+    }
 }
