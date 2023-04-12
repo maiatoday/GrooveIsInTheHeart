@@ -2,6 +2,8 @@ package net.maiatoday.giith.blink
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.basicMarquee
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
@@ -13,7 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import net.maiatoday.giith.ui.*
 
-@OptIn(ExperimentalAnimationApi::class, ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalAnimationApi::class, ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
 @Composable
 fun BlinkScreen() {
     var show by remember { mutableStateOf(false) }
@@ -50,43 +52,45 @@ fun BlinkScreen() {
 
             Spacer(modifier = spacer)
             AnimatedVisibility(visible = show) {
-                Row {
-                    Row {
-                        Blinky(60.dp)
-                        Text(
-                            text = "Blinky",
-                            color = Lollipop,
-                            modifier = Modifier
-                                .padding(8.dp)
-                        )
-                    }
-                    Row {
-                        Pinky(60.dp)
-                        Text(
-                            text = "Pinky",
-                            color = MyPonyHair,
-                            modifier = Modifier
-                                .padding(8.dp)
-                        )
-                    }
-                    Row {
-                        Inky(60.dp)
-                        Text(
-                            text = "Inky",
-                            color = SummerSky,
-                            modifier = Modifier
-                                .padding(8.dp)
-                        )
-                    }
+                Column(Modifier.width(300.dp)) {
+                    Row(modifier = Modifier.basicMarquee()) {
+                        Row {
+                            Blinky(60.dp)
+                            Text(
+                                text = "Blinky",
+                                color = Lollipop,
+                                modifier = Modifier
+                                    .padding(8.dp)
+                            )
+                        }
+                        Row {
+                            Pinky(60.dp)
+                            Text(
+                                text = "Pinky",
+                                color = MyPonyHair,
+                                modifier = Modifier
+                                    .padding(8.dp)
+                            )
+                        }
+                        Row {
+                            Inky(60.dp)
+                            Text(
+                                text = "Inky",
+                                color = SummerSky,
+                                modifier = Modifier
+                                    .padding(8.dp)
+                            )
+                        }
 
-                    Row {
-                        Clyde(60.dp)
-                        Text(
-                            text = "Clyde",
-                            color = TrollHair,
-                            modifier = Modifier
-                                .padding(8.dp)
-                        )
+                        Row {
+                            Clyde(60.dp)
+                            Text(
+                                text = "Clyde",
+                                color = TrollHair,
+                                modifier = Modifier
+                                    .padding(8.dp)
+                            )
+                        }
                     }
                 }
             }
