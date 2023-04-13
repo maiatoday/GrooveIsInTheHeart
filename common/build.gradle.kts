@@ -14,9 +14,12 @@ kotlin {
                 api(compose.runtime)
                 api(compose.foundation)
                 api(compose.material3)
+                @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
+                implementation(compose.components.resources)
+                implementation("org.jetbrains.compose.components:components-animatedimage-desktop:1.4.0")
+
                 // Needed only for preview.
                 implementation(compose.preview)
-                implementation("org.jetbrains.compose.components:components-animatedimage-desktop:1.4.0")
             }
         }
         named("androidMain") {
