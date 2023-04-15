@@ -8,7 +8,8 @@ import net.maiatoday.giith.ui.imageResourcePainter
 actual fun getPlatformName(): String = "Android"
 
 actual fun openBrowser(url: String) {
-    // launch the browser
+//    val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+//    startActivity(LocalContext.current, browserIntent, null)
 }
 
 @Composable
