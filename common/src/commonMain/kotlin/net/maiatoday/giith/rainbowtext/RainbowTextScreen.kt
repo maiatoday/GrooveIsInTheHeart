@@ -12,6 +12,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import net.maiatoday.giith.ui.components.Hot
+import supportsGifs
 
 @OptIn(ExperimentalAnimationApi::class, ExperimentalMaterial3Api::class)
 @Composable
@@ -55,12 +57,15 @@ fun RainbowTextScreen() {
                 endColor = Color.Cyan,
                 )
             Spacer(modifier = spacer)
-            MultiColorSmoothText(
-                text = text,
-                modifier = Modifier.padding(8.dp),
-                style = MaterialTheme.typography.headlineSmall,
-                duration = 1200
-            )
+            Row {
+                MultiColorSmoothText(
+                    text = text,
+                    modifier = Modifier.padding(8.dp),
+                    style = MaterialTheme.typography.headlineSmall,
+                    duration = 1200
+                )
+                Hot(show = supportsGifs())
+            }
             Spacer(modifier = spacer)
             RainbowGradientText(text)
             Spacer(modifier = spacer)
@@ -68,10 +73,14 @@ fun RainbowTextScreen() {
             Spacer(modifier = spacer)
             AnotherGradientText(text)
             Spacer(modifier = spacer)
-            GradientTextShimmer(
-                text = text,
-                modifier = Modifier.padding(8.dp),
-                style = MaterialTheme.typography.headlineMedium)
+            Row {
+                GradientTextShimmer(
+                    text = text,
+                    modifier = Modifier.padding(8.dp),
+                    style = MaterialTheme.typography.headlineMedium
+                )
+                Hot(show = supportsGifs())
+            }
 
         }
     }

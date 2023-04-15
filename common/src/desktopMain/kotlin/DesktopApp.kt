@@ -18,12 +18,14 @@ actual fun openBrowser(url: String) {
 }
 
 @Composable
-actual fun GifWrap(gifResource: String, showError: Boolean, size: Dp) {
-    Image(
-        loadOrNull { loadResourceAnimatedImage(gifResource) }?.animate() ?: ImageBitmap.Blank,
-        contentDescription = null,
-        Modifier.size(size)
-    )
+actual fun GifWrap(gifResource: String, show: Boolean, size: Dp) {
+    if (show) {
+        Image(
+            loadOrNull { loadResourceAnimatedImage(gifResource) }?.animate() ?: ImageBitmap.Blank,
+            contentDescription = null,
+            Modifier.size(size)
+        )
+    }
 }
 
 @Preview

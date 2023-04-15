@@ -6,61 +6,58 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun Troll(showError:Boolean = true, size: Dp = 100.dp) = GifWrap("drawable/troll.gif", showError, size)
+fun Troll(show:Boolean = true, size: Dp = 100.dp) = GifWrap("drawable/troll.gif", show, size)
 
 @Composable
-fun Pony(showError:Boolean = true, size: Dp = 100.dp) = GifWrap("drawable/pony.gif", showError, size)
+fun Pony(show:Boolean = true, size: Dp = 100.dp) = GifWrap("drawable/pony.gif", show, size)
 
 @Composable
-fun ConstructionWorker(showError:Boolean = false, size: Dp = 100.dp) = GifWrap("drawable/construction.gif", showError, size)
+fun ConstructionWorker(show:Boolean = false, size: Dp = 100.dp) = GifWrap("drawable/construction.gif", show, size)
 
 @Composable
-fun Flame(showError:Boolean = false, size: Dp = 100.dp) = GifWrap("drawable/flame4.gif", showError, size)
+fun Flame(show:Boolean = false, size: Dp = 100.dp) = GifWrap("drawable/flame4.gif", show, size)
 
 @Composable
-fun Baby(showError:Boolean = false, size: Dp = 100.dp) = GifWrap("drawable/baby.gif", showError, size)
+fun Baby(show:Boolean = false, size: Dp = 100.dp) = GifWrap("drawable/baby.gif", show, size)
 
 @Composable
-fun Cube(showError:Boolean = false, size: Dp = 100.dp) = GifWrap("drawable/cube.gif", showError, size)
+fun Cube(show:Boolean = false, size: Dp = 100.dp) = GifWrap("drawable/cube.gif", show, size)
 
 @Composable
-fun Hot(showError:Boolean = false, size: Dp = 48.dp) = GifWrap("drawable/hot.gif", showError, size)
+fun Hot(show:Boolean = false, size: Dp = 48.dp) = GifWrap("drawable/hot.gif", show, size)
 
 @Composable
-fun New(showError:Boolean = false, size: Dp = 48.dp) = GifWrap("drawable/newroller.gif", showError, size)
+fun New(show:Boolean = false, size: Dp = 48.dp) = GifWrap("drawable/newroller.gif", show, size)
 
 @Composable
-fun Wand(showError:Boolean = false, size: Dp = 48.dp) = GifWrap("drawable/capwand.gif", showError, size)
+fun Wand(show:Boolean = false, size: Dp = 48.dp) = GifWrap("drawable/capwand.gif", show, size)
 
 @Composable
-fun DancerGirlRainbow(showError:Boolean = false, size: Dp = 48.dp) = GifWrap("drawable/dancergirlrainbow.gif", showError, size)
+fun DancerGirlRainbow(show:Boolean = false, size: Dp = 48.dp) = GifWrap("drawable/dancergirlrainbow.gif", show, size)
 
 @Composable
-fun Pyramid(showError:Boolean = false, size: Dp = 48.dp) = GifWrap("drawable/firepyramid.gif", showError, size)
+fun Pyramid(show:Boolean = false, size: Dp = 48.dp) = GifWrap("drawable/firepyramid.gif", show, size)
 
 @Composable
-fun FlashingGhost(showError:Boolean = false, size: Dp = 48.dp) = GifWrap("drawable/flashingghost.gif", showError, size)
+fun FlashingGhost(show:Boolean = false, size: Dp = 48.dp) = GifWrap("drawable/flashingghost.gif", show, size)
 
 @Composable
-fun GuestBook(showError:Boolean = false, size: Dp = 100.dp) = GifWrap("drawable/guestbook2better.gif", showError, size)
+fun GuestBook(show:Boolean = false, size: Dp = 100.dp) = GifWrap("drawable/guestbook2better.gif", show, size)
 
 @Composable
-fun Netscape(showError:Boolean = false, size: Dp = 100.dp) = GifWrap("drawable/netscape.gif", showError, size)
+fun Number0(show:Boolean = false, size: Dp = 48.dp) = GifWrap("drawable/number0.gif", show, size)
 
 @Composable
-fun Number0(showError:Boolean = false, size: Dp = 48.dp) = GifWrap("drawable/number0.gif", showError, size)
+fun Rainbow(show:Boolean = false, size: Dp = 48.dp) = GifWrap("drawable/rainbow.gif", show, size)
 
 @Composable
-fun Rainbow(showError:Boolean = false, size: Dp = 48.dp) = GifWrap("drawable/rainbow.gif", showError, size)
+fun StarSpin(show:Boolean = false, size: Dp = 48.dp) = GifWrap("drawable/starsspin.gif", show, size)
 
 @Composable
-fun StarSpin(showError:Boolean = false, size: Dp = 48.dp) = GifWrap("drawable/starsspin.gif", showError, size)
+fun New1(show:Boolean = false, size: Dp = 48.dp) = GifWrap("drawable/new1.gif", show, size)
 
 @Composable
-fun New1(showError:Boolean = false, size: Dp = 48.dp) = GifWrap("drawable/new1.gif", showError, size)
+fun Link2(show:Boolean = false, size: Dp = 48.dp) = GifWrap("drawable/link2.gif", show, size)
 
 @Composable
-fun Link2(showError:Boolean = false, size: Dp = 48.dp) = GifWrap("drawable/link2.gif", showError, size)
-
-@Composable
-fun NetscapeLogo(showError:Boolean = false, size: Dp = 100.dp) = GifWrap("drawable/netscape.gif", showError, size)
+fun NetscapeLogo(show:Boolean = false, size: Dp = 100.dp) = GifWrap("drawable/netscape.gif", show, size)

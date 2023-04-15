@@ -12,8 +12,8 @@ actual fun openBrowser(url: String) {
 }
 
 @Composable
-actual fun GifWrap(gifResource: String, showError: Boolean, size: Dp) {
-    if (showError) {
+actual fun GifWrap(gifResource: String, show: Boolean, size: Dp) {
+    if (show) {
         val brokenFile = imageResourcePainter("bork.png")
         Image(
             modifier = Modifier.size(size),

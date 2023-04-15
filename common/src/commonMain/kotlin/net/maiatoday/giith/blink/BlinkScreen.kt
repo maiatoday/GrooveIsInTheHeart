@@ -48,51 +48,73 @@ fun BlinkScreen() {
                 durationMillis = 2000
             )
             Spacer(modifier = spacer)
-
-            Spacer(modifier = spacer)
             AnimatedVisibility(visible = show) {
-                Column(Modifier.width(300.dp)) {
-                    Row(modifier = Modifier.basicMarquee()) {
-                        Row {
-                            Blinky(60.dp)
-                            Text(
-                                text = "Blinky",
-                                color = Lollipop,
-                                modifier = Modifier
-                                    .padding(8.dp)
-                            )
-                        }
-                        Row {
-                            Pinky(60.dp)
-                            Text(
-                                text = "Pinky",
-                                color = MyPonyHair,
-                                modifier = Modifier
-                                    .padding(8.dp)
-                            )
-                        }
-                        Row {
-                            Inky(60.dp)
-                            Text(
-                                text = "Inky",
-                                color = SummerSky,
-                                modifier = Modifier
-                                    .padding(8.dp)
-                            )
-                        }
-
-                        Row {
-                            Clyde(60.dp)
-                            Text(
-                                text = "Clyde",
-                                color = TrollHair,
-                                modifier = Modifier
-                                    .padding(8.dp)
-                            )
-                        }
-                    }
-                }
+                TheGhosts()
             }
         }
+    }
+}
+
+@OptIn(ExperimentalFoundationApi::class)
+@Composable
+fun TheGhosts(modifier: Modifier = Modifier.width(300.dp)) {
+    Column(modifier) {
+        Row(modifier = Modifier.basicMarquee()) {
+            Blinky()
+            Pinky()
+            Inky()
+            Clyde()
+        }
+    }
+}
+@Composable
+private fun Clyde() {
+    Row {
+        Clyde(60.dp)
+        Text(
+            text = "Clyde",
+            color = TrollHair,
+            modifier = Modifier
+                .padding(8.dp)
+        )
+    }
+}
+
+@Composable
+private fun Inky() {
+    Row {
+        Inky(60.dp)
+        Text(
+            text = "Inky",
+            color = SummerSky,
+            modifier = Modifier
+                .padding(8.dp)
+        )
+    }
+}
+
+@Composable
+private fun Pinky() {
+    Row {
+        Pinky(60.dp)
+        Text(
+            text = "Pinky",
+            color = MyPonyHair,
+            modifier = Modifier
+                .padding(8.dp)
+        )
+    }
+}
+
+@Composable
+private fun Blinky() {
+    Row {
+        Blinky(60.dp)
+        Text(
+            text = "Blinky",
+            color = Lollipop,
+            modifier = Modifier
+                .padding(8.dp)
+        )
     }
 }

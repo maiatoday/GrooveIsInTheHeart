@@ -9,6 +9,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
+import isAndroid
 import net.maiatoday.giith.gaudydivider.LintDivider
 import net.maiatoday.giith.gaudydivider.SherbetBombDivider
 import net.maiatoday.giith.memphis.Memphis
@@ -40,19 +41,19 @@ fun GuestBookScreen() {
 @Composable
 fun GuestBook(modifier: Modifier = Modifier, onSubmit: (GuestBookEntry) -> Unit) {
     var name by remember {
-        mutableStateOf("")
+        mutableStateOf("maiatoday")
     }
     var url by remember {
-        mutableStateOf("")
+        mutableStateOf("https://maiatoday.net/")
     }
     var comment by remember {
-        mutableStateOf("")
+        mutableStateOf("Thank you AndroidMakers x Droidcon 2023")
     }
     Column(modifier = modifier, horizontalAlignment = Alignment.CenterHorizontally) {
         Row(verticalAlignment = Alignment.CenterVertically) {
-            Cube()
+            Cube(show = !isAndroid())
             Text("Add to the Guest book", style = MaterialTheme.typography.titleLarge)
-            Cube()
+            Cube(show = !isAndroid())
         }
         Row {
             Text("Name: ")
@@ -67,19 +68,23 @@ fun GuestBook(modifier: Modifier = Modifier, onSubmit: (GuestBookEntry) -> Unit)
             TextField(value = comment, onValueChange = { newText -> comment = newText })
         }
         Row {
-            Button(onClick = {
-                onSubmit(GuestBookEntry(name, url, comment))
-                name = ""
-                url = ""
-                comment = ""
-            }) {
+            Button(
+                modifier = Modifier.padding(8.dp),
+                onClick = {
+                    onSubmit(GuestBookEntry(name, url, comment))
+                    name = ""
+                    url = ""
+                    comment = ""
+                }) {
                 Text("Submit")
             }
-            Button(onClick = {
-                name = ""
-                url = ""
-                comment = ""
-            }) {
+            Button(
+                modifier = Modifier.padding(8.dp),
+                onClick = {
+                    name = ""
+                    url = ""
+                    comment = ""
+                }) {
                 Text("Reset")
             }
         }
@@ -99,18 +104,18 @@ fun GuestBookEntries(modifier: Modifier = Modifier, entries: List<GuestBookEntry
                     Text(
                         modifier = Modifier.padding(8.dp),
                         text = entry.name,
-                        style = MaterialTheme.typography.bodyLarge
+                        style = MaterialTheme.typography.bodyMedium
                     )
                     Text(
                         modifier = Modifier.padding(8.dp),
                         text = entry.uri,
-                        style = MaterialTheme.typography.bodyMedium
+                        style = MaterialTheme.typography.bodySmall
                     )
                 }
                 Text(
-                    modifier = Modifier.padding(start = 48.dp),
+                    modifier = Modifier.padding(start = 48.dp, top = 8.dp, bottom = 8.dp),
                     text = entry.comment,
-                    style = MaterialTheme.typography.bodySmall
+                    style = MaterialTheme.typography.headlineLarge
                 )
                 LintDivider()
             }
@@ -121,8 +126,21 @@ fun GuestBookEntries(modifier: Modifier = Modifier, entries: List<GuestBookEntry
 data class GuestBookEntry(val name: String, val uri: String, val comment: String)
 
 val sampleGuestBook = listOf(
-    GuestBookEntry("Flopsy", "http://dodgy.net", "curious"),
-    GuestBookEntry("Mopsy", "http://yeoldwebsite.net", "I wonder where they hid the carrots"),
-    GuestBookEntry("Cotton Tail", "http://carrotpatch.net", "I wandered around in your website and it  was nostalgic"),
-    GuestBookEntry("Peter", "http://runrunrun.net", "Macgregors nemesis"),
+    GuestBookEntry(
+        "Composionista",
+        "https://developer.android.com/jetpack/compose/state",
+        "Change the state to animate!"
+    ),
+    GuestBookEntry(
+        "animate*AsState",
+        "https://developer.android.com/jetpack/compose/animation",
+        "I see numbers and colours and I want to animate!"
+    ),
+    GuestBookEntry(
+        "ComposeAllTheThings!",
+        "https://www.jetbrains.com/lp/compose-multiplatform/",
+        "I <3 Compose multiplatform!"
+    ),
+    GuestBookEntry("LivingDesign", "https://artincontext.org/memphis-design/", "I never knew Memphis was a thing"),
+    GuestBookEntry("Cameron", "https://www.cameronsworld.net/", "90s Nostalgia heats my computer"),
 )

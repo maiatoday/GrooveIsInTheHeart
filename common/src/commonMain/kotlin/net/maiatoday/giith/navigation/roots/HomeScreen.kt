@@ -7,6 +7,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.selection.selectable
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -17,7 +18,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
+import getPlatformName
 import net.maiatoday.giith.blink.BlinkText
+import net.maiatoday.giith.blink.TheGhosts
 import net.maiatoday.giith.gaudydivider.ShimmerDivider
 import net.maiatoday.giith.glitter.GlitterBox
 import net.maiatoday.giith.heartpath.CandyHeartPulse
@@ -59,6 +62,7 @@ fun SimpleHome(modifier: Modifier = Modifier, switchChildScreen: (screen: Screen
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun GroovyHome(modifier: Modifier = Modifier, switchChildScreen: (screen: Screen) -> Unit = {}) {
+    var showGifs by remember { mutableStateOf(getPlatformName() != "Android") }
     Surface(modifier = modifier.fillMaxSize()) {
         UltraVioletBox()
         Box(
@@ -70,15 +74,14 @@ fun GroovyHome(modifier: Modifier = Modifier, switchChildScreen: (screen: Screen
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    Pony()
-                    Baby()
+                    TheGhosts(modifier = Modifier.padding(8.dp).size(80.dp))
                     GradientTextShimmer(
+                        modifier = Modifier.clickable { showGifs = !showGifs }.padding(8.dp),
                         text = "Welcome to my corner of the Internet",
                         style = MaterialTheme.typography.headlineMedium,
                         colors = pastelRainbow
                     )
-                    Baby()
-                    Pony()
+                    TheGhosts(modifier = Modifier.padding(8.dp).size(80.dp))
                 }
                 ShimmerDivider(height = 8.dp, colors = vividRainbow)
                 LazyVerticalGrid(
@@ -96,7 +99,7 @@ fun GroovyHome(modifier: Modifier = Modifier, switchChildScreen: (screen: Screen
                                         .clickable { switchChildScreen(s) }
                                         .padding(8.dp)
                                 ) {
-                                    GifForScreen(s)
+                                    GifForScreen(s, showGifs)
                                     Text(
                                         modifier = Modifier
                                             .padding(8.dp),
@@ -121,7 +124,7 @@ fun GroovyHome(modifier: Modifier = Modifier, switchChildScreen: (screen: Screen
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
-                    GuestBook()
+                    GuestBook(show = showGifs)
                     BlinkText(
                         text = "Sign the Guest Book",
                         color = Lime,
@@ -132,7 +135,7 @@ fun GroovyHome(modifier: Modifier = Modifier, switchChildScreen: (screen: Screen
                         durationMillis = 2000,
                         textDecoration = TextDecoration.Underline
                     )
-                    ConstructionWorker()
+                    ConstructionWorker(show = showGifs)
                     BlinkText(
                         text = "My Bookmarks",
                         color = SummerSky,
@@ -143,7 +146,7 @@ fun GroovyHome(modifier: Modifier = Modifier, switchChildScreen: (screen: Screen
                         durationMillis = 2000,
                         textDecoration = TextDecoration.Underline
                     )
-                    Link2()
+                    Link2(show = showGifs)
                 }
                 Row(
                     modifier = Modifier
@@ -151,8 +154,12 @@ fun GroovyHome(modifier: Modifier = Modifier, switchChildScreen: (screen: Screen
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
-                    NetscapeLogo()
+                    NetscapeLogo(show = showGifs)
+                    Pony(show = showGifs)
+                    Baby(show = showGifs)
                     VisitorCounterFake()
+                    Baby(show = showGifs)
+                    Pony(show = showGifs)
                     ComposeLogo()
                 }
             }
@@ -162,21 +169,21 @@ fun GroovyHome(modifier: Modifier = Modifier, switchChildScreen: (screen: Screen
 }
 
 @Composable
-fun GifForScreen(screen: Screen) {
+fun GifForScreen(screen: Screen, showGifs: Boolean = true) {
     when (screen) {
         Home -> {}
-        ColorSwatches -> Troll(size = 48.dp, showError = false)
-        Wallpaper -> Hot()
-        Memphis -> Pyramid()
-        Stars -> StarSpin()
-        Blink -> FlashingGhost()
-        RainbowText -> Rainbow()
-        VisitorCounter -> Number0()
-        GlitterPointer -> Wand()
-        HeartPath -> DancerGirlRainbow()
-        UnderConstruction -> Flame(size = 48.dp)
-        GuestBook -> GuestBook(size = 48.dp)
-        MyBookmarks -> Link2()
+        ColorSwatches -> Troll(size = 48.dp, show = showGifs)
+        Wallpaper -> Hot(show = showGifs)
+        Memphis -> Pyramid(show = showGifs)
+        Stars -> StarSpin(show = showGifs)
+        Blink -> FlashingGhost(show = showGifs)
+        RainbowText -> Rainbow(show = showGifs)
+        VisitorCounter -> Number0(show = showGifs)
+        GlitterPointer -> Wand(show = showGifs)
+        HeartPath -> DancerGirlRainbow(show = showGifs)
+        UnderConstruction -> Flame(size = 48.dp, show = showGifs)
+        GuestBook -> GuestBook(size = 48.dp, show = showGifs)
+        MyBookmarks -> Link2(show = showGifs)
     }
 
 }

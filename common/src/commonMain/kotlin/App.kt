@@ -76,9 +76,12 @@ fun App() {
     }
 }
 
+fun supportsGifs():Boolean = getPlatformName() != "Android"
+fun isAndroid():Boolean = getPlatformName() == "Android"
+
 expect fun getPlatformName(): String
 
 expect fun openBrowser(url:String)
 
 @Composable
-expect fun GifWrap(gifResource: String, showError:Boolean = true, size: Dp = 100.dp)
+expect fun GifWrap(gifResource: String, show:Boolean = true, size: Dp = 100.dp)

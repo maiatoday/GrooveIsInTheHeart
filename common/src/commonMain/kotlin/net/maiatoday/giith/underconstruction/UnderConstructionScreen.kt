@@ -30,7 +30,7 @@ fun UnderConstructionScreen() {
             Spacer(modifier = Modifier.height(16.dp))
             Row {
                 Flame()
-                ConstructionWorker()
+                ConstructionWorker(show = true)
                 Flame()
             }
             Text(text = "🚧🔥🚧")

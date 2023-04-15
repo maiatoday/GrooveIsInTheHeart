@@ -2,8 +2,10 @@ package net.maiatoday.giith.visitorcounter
 
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.layout.*
+import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -19,6 +21,11 @@ fun VisitorCounterScreen() {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            Row {
+                Button(onClick = { count += 10 }, modifier = Modifier.padding(8.dp)) { Text("Up") }
+                Button(onClick = { count -= 5 }, modifier = Modifier.padding(8.dp)) { Text("Down") }
+
+            }
             Counter(
                 modifier = Modifier.padding(4.dp),
                 style = MaterialTheme.typography.headlineLarge,

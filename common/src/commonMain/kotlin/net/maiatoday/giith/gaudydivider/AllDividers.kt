@@ -61,7 +61,11 @@ fun SparkDivider(modifier: Modifier = Modifier, height: Dp) {
 }
 
 @Composable
-fun MoarSparkDivider(modifier: Modifier = Modifier, height: Dp) {
+fun MoarSparkDivider(
+    modifier: Modifier = Modifier,
+    height: Dp = Dp.Unspecified,
+    spark: List<Color> = sparkCenter
+) {
     val infiniteTransition = rememberInfiniteTransition()
     val offsetX by infiniteTransition.animateFloat(
         initialValue = 0.0f,
@@ -72,8 +76,8 @@ fun MoarSparkDivider(modifier: Modifier = Modifier, height: Dp) {
         )
     )
     val lastColor by infiniteTransition.animateColor(
-        initialValue = SherbetBomb,
-        targetValue = BlueyBlack,
+        initialValue = Color.White,
+        targetValue = Color.Black,
         animationSpec = infiniteRepeatable(
             animation = tween(5000, easing = FastOutSlowInEasing),
             repeatMode = RepeatMode.Reverse
@@ -82,7 +86,7 @@ fun MoarSparkDivider(modifier: Modifier = Modifier, height: Dp) {
     Canvas(modifier = modifier.fillMaxWidth().height(height)) {
         drawRect(
             brush = Brush.radialGradient(
-                colors = sparkCenter + lastColor,
+                colors = spark + lastColor,
                 center = Offset(offsetX * size.width, center.y)
             ),
             style = Fill,
@@ -126,7 +130,7 @@ fun PlainDivider(modifier: Modifier = Modifier, color: Color) {
 }
 
 @Composable
-fun ShimmerDivider(modifier: Modifier = Modifier, colors:List<Color> = pastelRainbow, height:Dp = 8.dp) {
+fun ShimmerDivider(modifier: Modifier = Modifier, colors: List<Color> = pastelRainbow, height: Dp = 8.dp) {
     val deltaPx = height.toPx()
     val deltaDoublePx = deltaPx * 2
 
