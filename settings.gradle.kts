@@ -16,3 +16,5 @@ pluginManagement {
 }
 
 include(":common", ":android", ":desktop")
+
+rootProject.name = "Groove is in the Heart"

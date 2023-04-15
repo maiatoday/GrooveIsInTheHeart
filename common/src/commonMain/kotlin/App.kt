@@ -5,6 +5,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import net.maiatoday.giith.blink.BlinkScreen
 import net.maiatoday.giith.colorSwatches.ColorSwatchesScreen
@@ -77,6 +78,7 @@ fun App() {
 
 expect fun getPlatformName(): String
 
-expect fun isAndroid(): Boolean
-
 expect fun openBrowser(url:String)
+
+@Composable
+expect fun GifWrap(gifResource: String, showError:Boolean = true, size: Dp = 100.dp)

@@ -16,16 +16,19 @@ kotlin {
                 api(compose.material3)
                 @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
                 implementation(compose.components.resources)
-                implementation("org.jetbrains.compose.components:components-animatedimage-desktop:1.4.0")
-
-                // Needed only for preview.
-                implementation(compose.preview)
             }
         }
         val androidMain by getting {
             dependencies {
                 api("androidx.appcompat:appcompat:1.6.1")
                 api("androidx.core:core-ktx:1.10.0")
+            }
+        }
+        val desktopMain by getting {
+            dependencies {
+                implementation(compose.desktop.common)
+                implementation("org.jetbrains.compose.components:components-animatedimage-desktop:1.4.0") // Needed only for preview.
+                implementation(compose.preview)
             }
         }
     }

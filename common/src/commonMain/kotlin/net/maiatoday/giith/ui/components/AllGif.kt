@@ -1,18 +1,9 @@
 package net.maiatoday.giith.ui.components
 
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.size
+import GifWrap
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import isAndroid
-import net.maiatoday.giith.ui.imageResourcePainter
-import org.jetbrains.compose.animatedimage.Blank
-import org.jetbrains.compose.animatedimage.animate
-import org.jetbrains.compose.animatedimage.loadResourceAnimatedImage
-import org.jetbrains.compose.resources.loadOrNull
 
 @Composable
 fun Troll(showError:Boolean = true, size: Dp = 100.dp) = GifWrap("drawable/troll.gif", showError, size)
@@ -73,24 +64,3 @@ fun Link2(showError:Boolean = false, size: Dp = 48.dp) = GifWrap("drawable/link2
 
 @Composable
 fun NetscapeLogo(showError:Boolean = false, size: Dp = 100.dp) = GifWrap("drawable/netscape.gif", showError, size)
-
-@Composable
-fun GifWrap(gifResource: String, showError:Boolean = true, size: Dp = 100.dp) {
-    if (isAndroid()) {
-        if (showError) {
-            val brokenFile = imageResourcePainter("bork.png")
-            Image(
-                modifier = Modifier.size(size),
-                painter = brokenFile,
-                contentDescription = "Broken file"
-            )
-        }
-    } else {
-        Image(
-            loadOrNull { loadResourceAnimatedImage(gifResource) }?.animate() ?: ImageBitmap.Blank,
-            contentDescription = null,
-            Modifier.size(size)
-        )
-    }
-
-}
