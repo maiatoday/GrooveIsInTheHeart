@@ -3,15 +3,15 @@ package net.maiatoday.giith.navigation
 enum class Screen {
     Home,
     ColorSwatches,
-    Wallpaper,
     Memphis,
     Stars,
+    Wallpaper,
     Blink,
     RainbowText,
     VisitorCounter,
-    GlitterPointer,
     HeartPath,
     UnderConstruction,
+    GlitterPointer,
     GuestBook,
     MyBookmarks,
 }

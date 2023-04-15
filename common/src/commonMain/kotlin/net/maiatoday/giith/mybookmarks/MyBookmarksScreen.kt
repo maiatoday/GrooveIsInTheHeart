@@ -86,7 +86,9 @@ fun LinkItem(link: Bookmark) {
     }
 }
 
-data class Bookmark(val text: String, val url: String, val isHot: Boolean, val isNew: Boolean)
+data class Bookmark(val text: String, val url: String, val isHot: Boolean, val isNew: Boolean) {
+    fun toMarkDown():String = "[$text]($url)"
+}
 
 val Inspiration = listOf(
     Bookmark(text = "Cameron's World", url = "https://www.cameronsworld.net/", isHot = true, isNew = true),
