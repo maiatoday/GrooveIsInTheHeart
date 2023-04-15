@@ -9,7 +9,7 @@ kotlin {
     jvm("desktop")
 
     sourceSets {
-        named("commonMain") {
+        val commonMain by getting  {
             dependencies {
                 api(compose.runtime)
                 api(compose.foundation)
@@ -22,7 +22,7 @@ kotlin {
                 implementation(compose.preview)
             }
         }
-        named("androidMain") {
+        val androidMain by getting {
             dependencies {
                 api("androidx.appcompat:appcompat:1.6.1")
                 api("androidx.core:core-ktx:1.10.0")
@@ -33,6 +33,7 @@ kotlin {
 
 android {
     compileSdk = 33
+    namespace = "net.maiatoday.giith.common"
 
     defaultConfig {
         minSdk = 26
