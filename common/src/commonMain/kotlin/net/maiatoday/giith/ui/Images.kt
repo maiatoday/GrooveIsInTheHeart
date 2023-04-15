@@ -1,5 +1,6 @@
 package net.maiatoday.giith.ui
 
+import androidx.compose.animation.core.*
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -7,8 +8,10 @@ import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.ImageShader
 import androidx.compose.ui.graphics.ShaderBrush
@@ -105,10 +108,18 @@ fun Clyde(size: Dp = 100.dp) {
 
 @Composable
 fun ComposeLogo(size: Dp = 100.dp) {
-    val bork = imageResourcePainter("compose.png")
+    val infiniteTransition = rememberInfiniteTransition()
+    val angle by infiniteTransition.animateFloat(
+        initialValue = 0F,
+        targetValue = 360F,
+        animationSpec = infiniteRepeatable(
+            animation = tween(2000, easing = LinearEasing)
+        )
+    )
+    val compose = imageResourcePainter("compose.png")
     Image(
-        modifier = Modifier.size(size),
-        painter = bork,
+        modifier = Modifier.size(size).rotate(angle),
+        painter = compose,
         contentDescription = "Compose"
     )
 }
