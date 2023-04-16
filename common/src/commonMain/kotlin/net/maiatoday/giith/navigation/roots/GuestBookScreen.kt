@@ -1,6 +1,7 @@
 package net.maiatoday.giith.navigation.roots
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.*
@@ -8,14 +9,17 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import isAndroid
-import net.maiatoday.giith.gaudydivider.LintDivider
-import net.maiatoday.giith.gaudydivider.SherbetBombDivider
-import net.maiatoday.giith.memphis.Memphis
-import net.maiatoday.giith.memphis.MemphisChoices
+import net.maiatoday.giith.demos.g_heartpath.LintDivider
+import net.maiatoday.giith.demos.g_heartpath.SherbetBombDivider
+import net.maiatoday.giith.demos.a_memphis.Memphis
+import net.maiatoday.giith.demos.a_memphis.MemphisChoices
 import net.maiatoday.giith.ui.BlueyBlack
+import net.maiatoday.giith.ui.SummerSky
 import net.maiatoday.giith.ui.components.Cube
+import openBrowser
 
 @Composable
 fun GuestBookScreen() {
@@ -100,23 +104,28 @@ fun GuestBookEntries(modifier: Modifier = Modifier, entries: List<GuestBookEntry
         }
         for (entry in entries) {
             item {
-                Row(verticalAlignment = Alignment.CenterVertically) {
+                with(entry) {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Text(
+                            modifier = Modifier.padding(8.dp),
+                            text = name,
+                            style = MaterialTheme.typography.bodyMedium
+                        )
+                        Text(
+                            modifier = Modifier.padding(8.dp).clickable { openBrowser(uri) },
+                            text = uri,
+                            style = MaterialTheme.typography.bodySmall,
+                            color = SummerSky,
+                            textDecoration = TextDecoration.Underline
+                        )
+                    }
                     Text(
-                        modifier = Modifier.padding(8.dp),
-                        text = entry.name,
-                        style = MaterialTheme.typography.bodyMedium
+                        modifier = Modifier.padding(start = 48.dp, top = 8.dp, bottom = 8.dp),
+                        text = comment,
+                        style = MaterialTheme.typography.headlineLarge
                     )
-                    Text(
-                        modifier = Modifier.padding(8.dp),
-                        text = entry.uri,
-                        style = MaterialTheme.typography.bodySmall
-                    )
+
                 }
-                Text(
-                    modifier = Modifier.padding(start = 48.dp, top = 8.dp, bottom = 8.dp),
-                    text = entry.comment,
-                    style = MaterialTheme.typography.headlineLarge
-                )
                 LintDivider()
             }
         }

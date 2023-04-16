@@ -11,6 +11,7 @@ Listen to this playlist to get into the groove. This project has various sample 
 
 For more info also see the slides and talk which was first presented at Android Makers x Droidcon 2023.
 
+
 # Running the project
 ## Desktop
 Clone and run
@@ -84,4 +85,6 @@ Run the android project in Intellij or Android Studio
 
 [Made with compose sample](https://twitter.com/halilozercan/status/1541792011539431424?lang=en)
 
+[Brushing up on Compose Text coloring](https://medium.com/androiddevelopers/brushing-up-on-compose-text-coloring-84d7d70dd8fa)
+        
 

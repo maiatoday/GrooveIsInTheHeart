@@ -7,23 +7,23 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import net.maiatoday.giith.blink.BlinkScreen
-import net.maiatoday.giith.colorSwatches.ColorSwatchesScreen
-import net.maiatoday.giith.glitter.GlitterPointerScreen
-import net.maiatoday.giith.heartpath.HeartPathScreen
-import net.maiatoday.giith.mybookmarks.MyBookmarksScreen
-import net.maiatoday.giith.memphis.MemphisScreen
+import net.maiatoday.giith.demos.d_blink.BlinkScreen
+import net.maiatoday.giith.ui.colorSwatches.ColorSwatchesScreen
+import net.maiatoday.giith.demos.i_glitter.GlitterPointerScreen
+import net.maiatoday.giith.demos.g_heartpath.HeartPathScreen
+import net.maiatoday.giith.navigation.roots.MyBookmarksScreen
+import net.maiatoday.giith.demos.a_memphis.MemphisScreen
 import net.maiatoday.giith.navigation.Screen.*
 import net.maiatoday.giith.navigation.roots.GuestBookScreen
 import net.maiatoday.giith.navigation.roots.HomeScreen
-import net.maiatoday.giith.rainbowtext.RainbowTextScreen
-import net.maiatoday.giith.stars.StarsScreen
+import net.maiatoday.giith.demos.f_rainbowtext.RainbowTextScreen
+import net.maiatoday.giith.demos.b_stars.StarsScreen
 import net.maiatoday.giith.ui.GrooveTheme
 import net.maiatoday.giith.ui.ThemeChoice.Comic
 import net.maiatoday.giith.ui.ThemeChoice.Times
-import net.maiatoday.giith.underconstruction.UnderConstructionScreen
-import net.maiatoday.giith.visitorcounter.VisitorCounterScreen
-import net.maiatoday.giith.wallpaper.WallpaperScreen
+import net.maiatoday.giith.demos.h_underconstruction.UnderConstructionScreen
+import net.maiatoday.giith.demos.e_visitorcounter.VisitorCounterScreen
+import net.maiatoday.giith.demos.c_wallpaper.WallpaperScreen
 
 @Composable
 fun App() {

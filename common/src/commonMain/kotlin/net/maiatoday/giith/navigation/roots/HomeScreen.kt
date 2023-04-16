@@ -7,7 +7,6 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.selection.selectable
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -19,21 +18,22 @@ import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import getPlatformName
-import net.maiatoday.giith.blink.BlinkText
-import net.maiatoday.giith.blink.TheGhosts
-import net.maiatoday.giith.gaudydivider.ShimmerDivider
-import net.maiatoday.giith.glitter.GlitterBox
-import net.maiatoday.giith.heartpath.CandyHeartPulse
+import net.maiatoday.giith.demos.c_wallpaper.UltraVioletBox
+import net.maiatoday.giith.demos.d_blink.BlinkText
+import net.maiatoday.giith.demos.d_blink.TheGhosts
+import net.maiatoday.giith.demos.e_visitorcounter.Counter
+import net.maiatoday.giith.demos.f_rainbowtext.GradientTextShimmer
+import net.maiatoday.giith.demos.f_rainbowtext.MultiColorSmoothText
+import net.maiatoday.giith.demos.f_rainbowtext.SnappyRainbowText
+import net.maiatoday.giith.demos.g_heartpath.CandyHeartPulse
+import net.maiatoday.giith.demos.g_heartpath.ShimmerDivider
+import net.maiatoday.giith.demos.h_underconstruction.Chevron
+import net.maiatoday.giith.demos.i_glitter.GlitterBox
 import net.maiatoday.giith.navigation.Screen
 import net.maiatoday.giith.navigation.Screen.*
-import net.maiatoday.giith.rainbowtext.GradientTextShimmer
-import net.maiatoday.giith.rainbowtext.MultiColorSmoothText
-import net.maiatoday.giith.rainbowtext.SnappyRainbowText
 import net.maiatoday.giith.ui.*
 import net.maiatoday.giith.ui.components.*
-import net.maiatoday.giith.underconstruction.Chevron
-import net.maiatoday.giith.visitorcounter.Counter
-import net.maiatoday.magicsprinkles.ui.component.UnderConstructionMarquee
+import net.maiatoday.giith.demos.h_underconstruction.UnderConstructionMarquee
 
 @Composable
 fun HomeScreen(
@@ -129,7 +129,7 @@ fun GroovyHome(modifier: Modifier = Modifier, switchChildScreen: (screen: Screen
                         text = "Sign the Guest Book",
                         color = Lime,
                         modifier = Modifier
-                            .clickable { switchChildScreen(Screen.GuestBook) }
+                            .clickable { switchChildScreen(GuestBook) }
                             .padding(8.dp),
                         style = MaterialTheme.typography.headlineMedium,
                         durationMillis = 2000,
@@ -140,7 +140,7 @@ fun GroovyHome(modifier: Modifier = Modifier, switchChildScreen: (screen: Screen
                         text = "My Bookmarks",
                         color = SummerSky,
                         modifier = Modifier
-                            .clickable { switchChildScreen(Screen.MyBookmarks) }
+                            .clickable { switchChildScreen(MyBookmarks) }
                             .padding(8.dp),
                         style = MaterialTheme.typography.headlineMedium,
                         durationMillis = 2000,
