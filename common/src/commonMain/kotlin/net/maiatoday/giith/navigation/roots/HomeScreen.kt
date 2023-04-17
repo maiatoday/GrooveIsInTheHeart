@@ -28,12 +28,12 @@ import net.maiatoday.giith.demos.f_rainbowtext.SnappyRainbowText
 import net.maiatoday.giith.demos.g_heartpath.CandyHeartPulse
 import net.maiatoday.giith.demos.g_heartpath.ShimmerDivider
 import net.maiatoday.giith.demos.h_underconstruction.Chevron
+import net.maiatoday.giith.demos.h_underconstruction.UnderConstructionMarquee
 import net.maiatoday.giith.demos.i_glitter.GlitterBox
 import net.maiatoday.giith.navigation.Screen
 import net.maiatoday.giith.navigation.Screen.*
 import net.maiatoday.giith.ui.*
 import net.maiatoday.giith.ui.components.*
-import net.maiatoday.giith.demos.h_underconstruction.UnderConstructionMarquee
 
 @Composable
 fun HomeScreen(
@@ -46,7 +46,7 @@ fun HomeScreen(
 
 @Composable
 fun SimpleHome(modifier: Modifier = Modifier, switchChildScreen: (screen: Screen) -> Unit = {}) {
-    Surface(modifier = Modifier.fillMaxSize()) {
+    Surface(modifier = modifier.fillMaxSize()) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             for (s in Screen.values()) {
                 if (s !in listOf(Home, GuestBook, MyBookmarks)) {
@@ -59,7 +59,6 @@ fun SimpleHome(modifier: Modifier = Modifier, switchChildScreen: (screen: Screen
     }
 }
 
-@OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun GroovyHome(modifier: Modifier = Modifier, switchChildScreen: (screen: Screen) -> Unit = {}) {
     var showGifs by remember { mutableStateOf(getPlatformName() != "Android") }
