@@ -13,8 +13,8 @@ fun HeartPathScreen() {
         MoarSparkDivider(spark = pastelRainbow)
         Column {
             SherbetBombDivider()
-            CandyHeartPulse()
             ShimmerDivider()
+            CandyHeartPulse()
         }
     }
 }
