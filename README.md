@@ -86,5 +86,7 @@ Run the android project in Intellij or Android Studio
 [Made with compose sample](https://twitter.com/halilozercan/status/1541792011539431424?lang=en)
 
 [Brushing up on Compose Text coloring](https://medium.com/androiddevelopers/brushing-up-on-compose-text-coloring-84d7d70dd8fa)
+
+[Make body language of your design by using Animation](https://uxdesign.cc/animation-dbc6c0198c04)
         
 

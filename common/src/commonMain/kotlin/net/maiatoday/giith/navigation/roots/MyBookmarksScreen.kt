@@ -184,6 +184,12 @@ val Tools = listOf(
         isHot = true,
         isNew = false
     ),
+    Bookmark(
+        text = "Make body language of your design by using Animation",
+        url = "https://uxdesign.cc/animation-dbc6c0198c04",
+        isHot = false,
+        isNew = true
+    ),
 )
 
 val History = listOf(

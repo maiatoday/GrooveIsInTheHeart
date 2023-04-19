@@ -11,6 +11,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextDecoration
 
+
+
+
+
+
+
+//region BlinkTag
 @Composable
 fun BlinkTag(
     modifier: Modifier = Modifier,
@@ -32,7 +39,9 @@ fun BlinkTag(
     )
     content(modifier.alpha(alpha))
 }
+//endregion
 
+//region BlinkText
 @Composable
 fun BlinkText(
     modifier: Modifier = Modifier,
@@ -46,4 +55,4 @@ fun BlinkText(
         Text(modifier = it, text = text, style = style, color = color, textDecoration = textDecoration)
     }
 }
-
+//endregion

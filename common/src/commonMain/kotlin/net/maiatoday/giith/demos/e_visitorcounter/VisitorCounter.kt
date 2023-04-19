@@ -1,4 +1,4 @@
-@file:OptIn(ExperimentalAnimationApi::class)
+@file:OptIn(ExperimentalAnimationApi::class, ExperimentalAnimationApi::class)
 
 package net.maiatoday.giith.demos.e_visitorcounter
 
@@ -14,6 +14,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import kotlin.math.pow
 
+
+
+
+
+
+
+//region CounterCell
 @Composable
 fun CounterCell(
     modifier: Modifier = Modifier,
@@ -43,7 +50,9 @@ fun CounterCell(
         )
     }
 }
+//endregion
 
+//region Counter
 @Composable
 fun Counter(
     modifier: Modifier = Modifier,
@@ -70,6 +79,6 @@ fun Counter(
         }
     }
 }
-
+//endregion
 
 

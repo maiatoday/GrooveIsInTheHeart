@@ -28,6 +28,12 @@ import androidx.compose.ui.unit.dp
 import net.maiatoday.giith.tools.toPx
 import kotlin.math.roundToInt
 
+
+
+
+
+
+
 //region Chevron with Gradient
 @Composable
 fun Chevron(

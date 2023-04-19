@@ -32,6 +32,13 @@ import net.maiatoday.giith.ui.vividRainbow
 import net.maiatoday.giith.demos.i_glitter.GlitterState.Companion.sizeChanged
 import net.maiatoday.giith.demos.i_glitter.GlitterState.Companion.updateSource
 
+
+
+
+
+
+
+
 //region Glitter Fleck object
 enum class GlitterShape {
     Mixed,

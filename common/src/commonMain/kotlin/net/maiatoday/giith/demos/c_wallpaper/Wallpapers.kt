@@ -14,6 +14,12 @@ import androidx.compose.ui.graphics.ShaderBrush
 import androidx.compose.ui.graphics.TileMode
 import net.maiatoday.giith.ui.imageResource
 
+
+
+
+
+
+
 //region Blue Stars
 @Composable
 fun BlueStarsBox(
@@ -42,6 +48,9 @@ fun BlueStarsBox(
     )
 }
 //endregion
+
+
+
 
 //region More Wallpapers
 @Composable

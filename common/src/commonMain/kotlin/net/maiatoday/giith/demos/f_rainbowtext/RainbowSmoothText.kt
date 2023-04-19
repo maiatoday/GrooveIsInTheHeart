@@ -15,6 +15,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import net.maiatoday.giith.ui.pastelRainbow
 
+
+
+
+
+
 //region The rainbow animation
 @Composable
 fun rainbowAnimatedColor(

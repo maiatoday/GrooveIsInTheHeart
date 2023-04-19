@@ -13,6 +13,13 @@ import net.maiatoday.giith.ui.TheAiHelpedMe
 import net.maiatoday.giith.demos.c_wallpaper.tools.PoissonDiscField
 import net.maiatoday.giith.demos.c_wallpaper.tools.RandomField
 
+
+
+
+
+
+
+//region Star Struck and how the AI helped me 🤩
 @Composable
 fun StarsScreen() {
     Surface(modifier = Modifier.fillMaxSize()) {
@@ -29,5 +36,6 @@ fun StarsScreen() {
         ) { TheAiHelpedMe() }
     }
 }
+//endregion
 
 

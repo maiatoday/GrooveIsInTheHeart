@@ -4,6 +4,15 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
+
+
+
+
+
+
+
+
+//region Tribute to Memphis design
 @Composable
 fun Memphis(
     modifier: Modifier = Modifier,
@@ -15,3 +24,10 @@ fun Memphis(
         AllTheWaves(spacingDp = choices.spacingWave, waveSizeDp = choices.waveSize)
     }
 }
+//endregion
+
+
+
+
+
+

@@ -21,6 +21,12 @@ import net.maiatoday.giith.demos.f_rainbowtext.rainbowAnimatedColor
 import net.maiatoday.giith.tools.toPx
 import net.maiatoday.giith.ui.*
 
+
+
+
+
+
+
 //region Shimmer Divider
 @Composable
 fun ShimmerDivider(
