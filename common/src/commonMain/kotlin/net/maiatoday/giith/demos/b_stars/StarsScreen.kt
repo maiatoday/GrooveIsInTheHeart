@@ -19,6 +19,7 @@ import net.maiatoday.giith.demos.c_wallpaper.tools.RandomField
 
 
 
+
 //region Star Struck and how the AI helped me 🤩
 @Composable
 fun StarsScreen() {
@@ -37,5 +38,7 @@ fun StarsScreen() {
     }
 }
 //endregion
+
+
 
 

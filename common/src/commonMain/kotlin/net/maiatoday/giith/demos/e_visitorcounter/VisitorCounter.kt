@@ -21,6 +21,7 @@ import kotlin.math.pow
 
 
 //region CounterCell
+@OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun CounterCell(
     modifier: Modifier = Modifier,
