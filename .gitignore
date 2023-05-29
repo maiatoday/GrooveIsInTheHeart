@@ -28,6 +28,16 @@ gradle-app.setting
 *.xcscheme
 xcschememanagement.plist
 *.xcbkptlist
+
+.externalNativeBuild
+.cxx
+ios/Podfile.lock
+ios/Pods/*
+ios/iosApp.xcworkspace/*
+ios/iosApp.xcodeproj/*
+!ios/iosApp.xcodeproj/project.pbxproj
+common/common.podspec
+
 ### Kotlin template
 # Compiled class file
 *.class

@@ -17,4 +17,10 @@ pluginManagement {
 
 include(":common", ":android", ":desktop")
 
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+    }
+}
+
 rootProject.name = "Groove is in the Heart"
