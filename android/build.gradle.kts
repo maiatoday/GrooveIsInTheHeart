@@ -5,6 +5,7 @@ plugins {
 }
 
 android {
+    namespace="net.maiatoday.giith"
     compileSdk = 33
 
     defaultConfig {
@@ -15,12 +16,12 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 }
 
 dependencies {
     implementation(project(":common"))
-    implementation("androidx.activity:activity-compose:1.5.0")
+    implementation("androidx.activity:activity-compose:1.7.2")
 }

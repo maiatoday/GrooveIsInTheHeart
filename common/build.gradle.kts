@@ -6,7 +6,7 @@ plugins {
 }
 
 kotlin {
-    android()
+    androidTarget()
     jvm("desktop")
 
     iosX64()
@@ -39,7 +39,7 @@ kotlin {
         val androidMain by getting {
             dependencies {
                 api("androidx.appcompat:appcompat:1.6.1")
-                api("androidx.core:core-ktx:1.10.0")
+                api("androidx.core:core-ktx:1.10.1")
             }
         }
 
@@ -68,12 +68,11 @@ android {
 
     defaultConfig {
         minSdk = 26
-        targetSdk = 33
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     sourceSets {
