@@ -2,6 +2,18 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>source_serif_pro_semi_bold.ttf</string>
+		<string>source_serif_pro_extra_light.ttf</string>
+		<string>source_serif_pro_regular.ttf</string>
+		<string>source_serif_pro_light.ttf</string>
+		<string>source_serif_pro_bold.ttf</string>
+		<string>source_serif_pro_black.ttf</string>
+		<string>comic_neue_regular.ttf</string>
+		<string>comic_neue_light.ttf</string>
+		<string>comic_neue_bold.ttf</string>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

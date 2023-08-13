@@ -3,6 +3,7 @@ package net.maiatoday.giith.tools
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import kotlin.math.*
+import kotlin.random.Random
 
 class PoissonDisc(
     private val width: Float,
@@ -104,7 +105,7 @@ class PoissonDisc(
     }
 
     private fun random(): Double {
-        return Math.random()
+        return Random.nextDouble()
     }
 }
 

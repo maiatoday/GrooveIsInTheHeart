@@ -9,6 +9,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import net.maiatoday.giith.tools.myFormat
 
 
 @Composable
@@ -25,7 +26,7 @@ fun StepSlider(
     ) {
         Row {
             Text(text = "$label: ", fontSize = 14.sp)
-            Text(text = "%d".format(value.toInt()), fontSize = 14.sp)
+            Text(text = "%d".myFormat(value.toInt()), fontSize = 14.sp)
         }
         Slider(
             value = value,
