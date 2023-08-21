@@ -30,8 +30,9 @@ fun CounterCell(
     width: Int
 ) {
     // >>>>>>> State and visible change in one
-    val numbersSlidingAnimation: AnimatedContentScope<Int>.() -> ContentTransform =
-        {
+    AnimatedContent(
+        targetState = count,
+        transitionSpec =  {
             if (initialState > targetState) {
                 slideInVertically(initialOffsetY = { it }) + fadeIn() with
                         slideOutVertically(targetOffsetY = { -it }) + fadeOut()
@@ -40,9 +41,6 @@ fun CounterCell(
                         slideOutVertically(targetOffsetY = { it }) + fadeOut()
             }
         }
-    AnimatedContent(
-        targetState = count,
-        transitionSpec = numbersSlidingAnimation
     ) { number ->
         Text(
             modifier = modifier,
