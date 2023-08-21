@@ -36,7 +36,8 @@ const val SPACE_MIN = 30
 const val SPACE_MAX = 320
 
 const val SIZE_MIN = 0
-const val SIZE_MAX = 80
+// we can't use SIZE_MAX as there is a #define in iOS
+const val PLUGH = 80
 
 val padding = Modifier.padding(8.dp)
 
@@ -82,7 +83,7 @@ fun MemphisPanel(
             StepSlider(
                 initialValue = choices.dotSize,
                 minValue = SIZE_MIN,
-                maxValue = SIZE_MAX,
+                maxValue = PLUGH,
                 label = "Donut size"
             ) {
                 onValueChange(choices.copy(dotSize = it))
@@ -111,7 +112,7 @@ fun MemphisPanel(
             StepSlider(
                 initialValue = choices.triangleSize,
                 minValue = SIZE_MIN,
-                maxValue = SIZE_MAX,
+                maxValue = PLUGH,
                 label = "Triangle size"
             ) {
                 onValueChange(choices.copy(triangleSize = it))
@@ -134,7 +135,7 @@ fun MemphisPanel(
             StepSlider(
                 initialValue = choices.waveSize.width,
                 minValue = SIZE_MIN,
-                maxValue = SIZE_MAX,
+                maxValue = PLUGH,
                 label = "Wave width"
             ) {
                 onValueChange(choices.copy(waveSize = IntSize(width = it, height = choices.waveSize.height)))
@@ -144,7 +145,7 @@ fun MemphisPanel(
             StepSlider(
                 initialValue = choices.waveSize.height,
                 minValue = SIZE_MIN,
-                maxValue = SIZE_MAX,
+                maxValue = PLUGH,
                 label = "Wave height"
             ) {
                 onValueChange(choices.copy(waveSize = IntSize(width = choices.waveSize.width, height = it)))
