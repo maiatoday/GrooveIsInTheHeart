@@ -41,7 +41,6 @@ fun GuestBookScreen() {
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun GuestBook(modifier: Modifier = Modifier, onSubmit: (GuestBookEntry) -> Unit) {
     var name by remember {
@@ -51,7 +50,7 @@ fun GuestBook(modifier: Modifier = Modifier, onSubmit: (GuestBookEntry) -> Unit)
         mutableStateOf("https://maiatoday.net/")
     }
     var comment by remember {
-        mutableStateOf("Thank you AndroidMakers x Droidcon 2023")
+        mutableStateOf("Thank you Droidcon NYC 2023")
     }
     Column(modifier = modifier, horizontalAlignment = Alignment.CenterHorizontally) {
         Row(verticalAlignment = Alignment.CenterVertically) {

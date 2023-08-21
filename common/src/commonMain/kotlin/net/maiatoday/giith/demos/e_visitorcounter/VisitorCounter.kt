@@ -15,11 +15,6 @@ import androidx.compose.ui.text.TextStyle
 import kotlin.math.pow
 
 
-
-
-
-
-
 //region CounterCell
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
@@ -32,13 +27,13 @@ fun CounterCell(
     // >>>>>>> State and visible change in one
     AnimatedContent(
         targetState = count,
-        transitionSpec =  {
+        transitionSpec = {
             if (initialState > targetState) {
-                slideInVertically(initialOffsetY = { it }) + fadeIn() with
-                        slideOutVertically(targetOffsetY = { -it }) + fadeOut()
+                (slideInVertically(initialOffsetY = { it }) + fadeIn()) togetherWith slideOutVertically(
+                    targetOffsetY = { -it }) + fadeOut()
             } else {
-                slideInVertically(initialOffsetY = { -it }) + fadeIn() with
-                        slideOutVertically(targetOffsetY = { it }) + fadeOut()
+                (slideInVertically(initialOffsetY = { -it }) + fadeIn()) togetherWith slideOutVertically(
+                    targetOffsetY = { it }) + fadeOut()
             }
         }
     ) { number ->
