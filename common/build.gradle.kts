@@ -62,7 +62,7 @@ kotlin {
 }
 
 android {
-    compileSdk = 33
+    compileSdk = 34
     namespace = "net.maiatoday.giith.common"
 
     defaultConfig {
