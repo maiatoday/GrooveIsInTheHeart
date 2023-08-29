@@ -4,14 +4,28 @@ import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.SolidColor
@@ -31,9 +45,44 @@ import net.maiatoday.giith.demos.h_underconstruction.Chevron
 import net.maiatoday.giith.demos.h_underconstruction.UnderConstructionMarquee
 import net.maiatoday.giith.demos.i_glitter.GlitterBox
 import net.maiatoday.giith.navigation.Screen
-import net.maiatoday.giith.navigation.Screen.*
-import net.maiatoday.giith.ui.*
-import net.maiatoday.giith.ui.components.*
+import net.maiatoday.giith.navigation.Screen.Blink
+import net.maiatoday.giith.navigation.Screen.ColorSwatches
+import net.maiatoday.giith.navigation.Screen.GlitterPointer
+import net.maiatoday.giith.navigation.Screen.GuestBook
+import net.maiatoday.giith.navigation.Screen.HeartPath
+import net.maiatoday.giith.navigation.Screen.Home
+import net.maiatoday.giith.navigation.Screen.Memphis
+import net.maiatoday.giith.navigation.Screen.MyBookmarks
+import net.maiatoday.giith.navigation.Screen.RainbowText
+import net.maiatoday.giith.navigation.Screen.Stars
+import net.maiatoday.giith.navigation.Screen.UnderConstruction
+import net.maiatoday.giith.navigation.Screen.VisitorCounter
+import net.maiatoday.giith.navigation.Screen.Wallpaper
+import net.maiatoday.giith.navigation.Screen.entries
+import net.maiatoday.giith.ui.BlueyBlack
+import net.maiatoday.giith.ui.ComposeLogo
+import net.maiatoday.giith.ui.Lime
+import net.maiatoday.giith.ui.Lint
+import net.maiatoday.giith.ui.MyPonyHair
+import net.maiatoday.giith.ui.SummerSky
+import net.maiatoday.giith.ui.components.Baby
+import net.maiatoday.giith.ui.components.ConstructionWorker
+import net.maiatoday.giith.ui.components.DancerGirlRainbow
+import net.maiatoday.giith.ui.components.Flame
+import net.maiatoday.giith.ui.components.FlashingGhost
+import net.maiatoday.giith.ui.components.GuestBook
+import net.maiatoday.giith.ui.components.Hot
+import net.maiatoday.giith.ui.components.Link2
+import net.maiatoday.giith.ui.components.NetscapeLogo
+import net.maiatoday.giith.ui.components.Number0
+import net.maiatoday.giith.ui.components.Pony
+import net.maiatoday.giith.ui.components.Pyramid
+import net.maiatoday.giith.ui.components.Rainbow
+import net.maiatoday.giith.ui.components.StarSpin
+import net.maiatoday.giith.ui.components.Troll
+import net.maiatoday.giith.ui.components.Wand
+import net.maiatoday.giith.ui.pastelRainbow
+import net.maiatoday.giith.ui.vividRainbow
 
 @Composable
 fun HomeScreen(
@@ -84,14 +133,20 @@ fun GroovyHome(modifier: Modifier = Modifier, switchChildScreen: (screen: Screen
                     TheGhosts(modifier = Modifier.padding(8.dp).size(80.dp))
                 }
                 ShimmerDivider(height = 8.dp, colors = vividRainbow)
-                FlowRow(maxItemsInEachRow = 4) {
+                FlowRow(
+                    maxItemsInEachRow = 4,
+                    modifier = Modifier.padding(4.dp),
+                    horizontalArrangement = Arrangement.spacedBy(4.dp)
+                ) {
+                    val itemModifier = Modifier
+                        .padding(4.dp)
+                        .weight(1f)
+                        .border(width = 2.dp, color = MyPonyHair)
                     for (s in entries) {
                         if (s != Home) {
                             Row(
-                                Modifier
-                                    .border(width = 2.dp, color = MyPonyHair)
+                                itemModifier
                                     .clickable { switchChildScreen(s) }
-                                    .padding(8.dp)
                             ) {
                                 GifForScreen(s, showGifs)
                                 Text(
