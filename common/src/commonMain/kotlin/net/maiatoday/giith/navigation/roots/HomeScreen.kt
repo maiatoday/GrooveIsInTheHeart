@@ -59,6 +59,7 @@ fun SimpleHome(modifier: Modifier = Modifier, switchChildScreen: (screen: Screen
     }
 }
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun GroovyHome(modifier: Modifier = Modifier, switchChildScreen: (screen: Screen) -> Unit = {}) {
     var showGifs by remember { mutableStateOf(getPlatformName() != "Android") }
@@ -83,29 +84,22 @@ fun GroovyHome(modifier: Modifier = Modifier, switchChildScreen: (screen: Screen
                     TheGhosts(modifier = Modifier.padding(8.dp).size(80.dp))
                 }
                 ShimmerDivider(height = 8.dp, colors = vividRainbow)
-                LazyVerticalGrid(
-                    columns = GridCells.Fixed(4),
-                    modifier = Modifier
-                        .padding(8.dp)
-                        .fillMaxWidth()
-                ) {
-                    for (s in Screen.values()) {
+                FlowRow(maxItemsInEachRow = 4) {
+                    for (s in entries) {
                         if (s != Home) {
-                            item {
-                                Row(
-                                    Modifier
-                                        .border(width = 2.dp, color = MyPonyHair)
-                                        .clickable { switchChildScreen(s) }
-                                        .padding(8.dp)
-                                ) {
-                                    GifForScreen(s, showGifs)
-                                    Text(
-                                        modifier = Modifier
-                                            .padding(8.dp),
-                                        text = s.toString(),
-                                        textDecoration = TextDecoration.Underline
-                                    )
-                                }
+                            Row(
+                                Modifier
+                                    .border(width = 2.dp, color = MyPonyHair)
+                                    .clickable { switchChildScreen(s) }
+                                    .padding(8.dp)
+                            ) {
+                                GifForScreen(s, showGifs)
+                                Text(
+                                    modifier = Modifier
+                                        .padding(8.dp),
+                                    text = s.toString(),
+                                    textDecoration = TextDecoration.Underline
+                                )
                             }
                         }
                     }
